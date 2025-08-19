@@ -1,1 +1,7 @@
 git@github.com:TarasKolesnik/about.git
+
+git config user.email "felloweskolts@gmail.com"
+git config user.name "Taras Kolesnyk"
+
+Deploy to GIT Pages: git push prod master
+Delete branch on GITHUB: git push prod --delete master
