@@ -1,7 +1,5 @@
-git@github.com:TarasKolesnik/about.git
+# [Taras Kolesnyk][Portfolio] - Resume, Work, About
 
-git config user.email "felloweskolts@gmail.com"
-git config user.name "Taras Kolesnyk"
+## v0.0.1 (19.08.2025)
 
-Deploy to GIT Pages: git push prod master
-Delete branch on GITHUB: git push prod --delete master
+1. - Alfa Version
