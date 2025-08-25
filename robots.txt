@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://taraskolesnik.github.io/about/sitemap.xml
