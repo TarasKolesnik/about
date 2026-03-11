@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -76,13 +76,208 @@
       }
     </script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <script
       src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"
       defer
     ></script>
+
+    <style>
+      body {
+        font-family:
+          "Nunito",
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        background: radial-gradient(
+          circle at top,
+          #020617 0,
+          #020617 45%,
+          #020617 100%
+        );
+        color: #e5e7eb;
+      }
+
+      @keyframes indigoAuroraShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .aurora-bg {
+        position: relative;
+        overflow: hidden;
+        background: radial-gradient(
+          circle at top,
+          #020617 0,
+          #020617 45%,
+          #020617 100%
+        );
+      }
+
+      .aurora-bg::before {
+        content: "";
+        position: absolute;
+        inset: -30%;
+        z-index: -1;
+        pointer-events: none;
+        background-image:
+          radial-gradient(
+            circle at 0% 0%,
+            rgba(79, 70, 229, 0.8),
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 100% 0%,
+            rgba(129, 140, 248, 0.85),
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 0% 100%,
+            rgba(236, 72, 153, 0.7),
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 100% 100%,
+            rgba(56, 189, 248, 0.75),
+            transparent 55%
+          );
+        background-size: 220% 220%;
+        opacity: 0.6;
+        mix-blend-mode: screen;
+        animation: indigoAuroraShift 14s ease-in-out infinite;
+      }
+
+      .glass-panel {
+        position: relative;
+        overflow: hidden;
+        border-radius: 18px;
+
+        background:
+          radial-gradient(
+            circle at 0 0,
+            rgba(79, 70, 229, 0.18),
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 100% 100%,
+            rgba(15, 23, 42, 0.82),
+            transparent 55%
+          ),
+          rgba(15, 23, 42, 0.94);
+        backdrop-filter: blur(14px) saturate(150%);
+        -webkit-backdrop-filter: blur(14px) saturate(150%);
+
+        border: 1px solid rgba(148, 163, 184, 0.55); /* slate-400 */
+        box-shadow:
+          0 0 0 1px rgba(15, 23, 42, 0.9),
+          0 20px 46px rgba(15, 23, 42, 0.88),
+          0 0 18px rgba(79, 70, 229, 0.18);
+      }
+
+      .glass-panel::before {
+        content: "";
+        position: absolute;
+        inset: 10%;
+        border-radius: inherit;
+        pointer-events: none;
+        background: radial-gradient(
+          circle at 30% 0,
+          rgba(129, 140, 248, 0.16),
+          transparent 65%
+        );
+        opacity: 0.9;
+      }
+
+      .glass-panel:hover {
+        transform: translateY(-1px);
+        box-shadow:
+          0 0 0 1px rgba(129, 140, 248, 0.5),
+          0 22px 52px rgba(15, 23, 42, 0.94),
+          0 0 22px rgba(79, 70, 229, 0.26);
+        transition:
+          transform 160ms ease-out,
+          box-shadow 160ms ease-out,
+          border-color 160ms ease-out;
+      }
+
+      .auth-sign-in-card,
+      .auth-sign-in-card-dialog .mat-mdc-dialog-surface {
+        position: relative;
+        overflow: hidden;
+        border-radius: 18px;
+
+        /* стекло: более чистый, чуть светлее фон */
+        background:
+          radial-gradient(
+            circle at 0 0,
+            rgba(79, 70, 229, 0.24),
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 100% 100%,
+            rgba(15, 23, 42, 0.88),
+            transparent 55%
+          ),
+          rgba(15, 23, 42, 0.96);
+        backdrop-filter: blur(16px) saturate(150%);
+        -webkit-backdrop-filter: blur(16px) saturate(150%);
+
+        /* аккуратный контур + лёгкий inner-эффект за счёт двойной обводки */
+        border: 1px solid rgba(79, 70, 229, 0.45);
+        box-shadow:
+          0 0 0 1px rgba(15, 23, 42, 0.95),
+          0 22px 50px rgba(15, 23, 42, 0.9),
+          0 0 22px rgba(79, 70, 229, 0.25);
+      }
+
+      .auth-sign-in-card::before,
+      .auth-sign-in-card-dialog .mat-mdc-dialog-surface::before {
+        content: "";
+        position: absolute;
+        inset: 8%;
+        border-radius: inherit;
+        pointer-events: none;
+        background: radial-gradient(
+          circle at 50% 0,
+          rgba(79, 70, 229, 0.22),
+          transparent 65%
+        );
+        opacity: 0.9;
+      }
+
+      .auth-sign-in-card:hover,
+      .auth-sign-in-card-dialog .mat-mdc-dialog-surface:hover {
+        transform: translateY(-2px);
+        box-shadow:
+          0 0 0 1px rgba(79, 70, 229, 0.6),
+          0 26px 60px rgba(15, 23, 42, 0.95),
+          0 0 26px rgba(79, 70, 229, 0.35);
+        transition:
+          transform 160ms ease-out,
+          box-shadow 160ms ease-out,
+          border-color 160ms ease-out;
+      }
+    </style>
   </head>
   <body>
-    <div class="bg-gray-900">
+    <div class="aurora-bg">
       <header class="absolute inset-x-0 top-0 z-50">
         <nav
           aria-label="Global"
@@ -121,9 +316,7 @@
           </div>
           <div class="hidden lg:flex lg:gap-x-12">
             <a href="#work" class="text-sm/6 font-semibold text-white">Work</a>
-            <!-- <a href="#resume" class="text-sm/6 font-semibold text-white"
-              >Resume</a
-            > -->
+            <a href="#resume" class="text-sm/6 font-semibold text-white">CV</a>
             <a href="#about" class="text-sm/6 font-semibold text-white"
               >About</a
             >
@@ -180,11 +373,11 @@
                         class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
                         >Work</a
                       >
-                      <!-- <a
+                      <a
                         href="#resume"
                         class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
-                        >Resume</a
-                      > -->
+                        >CV</a
+                      >
                       <a
                         href="#about"
                         class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
@@ -233,27 +426,67 @@
             class="relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-288.75"
           ></div>
         </div>
-        <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-          <div class="text-center">
-            <h1
-              class="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl"
+        <div class="mx-auto max-w-2xl py-28 sm:py-40 lg:py-52">
+          <div class="flex justify-center">
+            <div
+              class="glass-panel w-full max-w-xl px-6 py-8 sm:px-10 sm:py-10"
             >
-              Taras Kolesnyk 🎺 Software Developer
-            </h1>
-            <p
-              class="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8"
-            >
-              Frontend, Angular, TypesScript ...
-            </p>
-            <div class="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="#about"
-                class="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-                >About</a
-              >
-              <a href="#work" class="text-sm/6 font-semibold text-white"
-                >Work <span aria-hidden="true">→</span></a
-              >
+              <div class="flex flex-col items-center text-center">
+                <h1
+                  class="text-sm font-semibold tracking-[0.22em] text-indigo-300 uppercase"
+                >
+                  Software Developer
+                </h1>
+                <p
+                  class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl"
+                >
+                  Taras Kolesnyk
+                </p>
+                <div class="mt-6 flex justify-center">
+                  <div
+                    class="relative inline-flex items-center justify-center rounded-full bg-gradient-to-tr from-indigo-500 via-sky-500 to-fuchsia-500 p-[2px]"
+                  >
+                    <div class="rounded-full bg-slate-950/80 p-1">
+                      <img
+                        width="200"
+                        src="./me/1.jpeg"
+                        alt="Taras Kolesnyk portrait"
+                        class="h-32 w-32 rounded-full object-cover sm:h-40 sm:w-40"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-6 text-lg/8 text-gray-200">
+                  Frontend Developer (Angular, 10+ years) — turning ideas into
+                  fast, scalable, and clear interfaces for CRMs and internal
+                  tools.
+                </p>
+                <div
+                  class="mt-4 flex flex-wrap items-center justify-center gap-4 text-sm text-gray-300"
+                >
+                  <span class="inline-flex items-center gap-1">
+                    <span class="size-1.5 rounded-full bg-emerald-400"></span>
+                    Open for remote roles
+                  </span>
+                  <a
+                    href="#about"
+                    class="font-semibold text-indigo-300 hover:text-indigo-200"
+                    >About</a
+                  >
+                  <a
+                    href="#work"
+                    class="font-semibold text-gray-200 hover:text-white"
+                  >
+                    Work
+                  </a>
+                  <a
+                    href="#resume"
+                    class="inline-flex items-center rounded-full border border-indigo-400/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-200 hover:border-indigo-300 hover:text-indigo-100"
+                  >
+                    View CV
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -287,52 +520,6 @@
         </div>
       </div>
     </div>
-    <div class="overflow-hidden bg-gray-900 py-24 sm:py-32">
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div
-          class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
-        >
-          <div class="lg:pt-4 lg:pr-8">
-            <div class="lg:max-w-lg">
-              <h2 class="text-base/7 font-semibold text-center text-indigo-400">
-                Software Developer
-              </h2>
-              <p
-                class="mt-2 text-4xl font-semibold text-center tracking-tight text-pretty text-white sm:text-5xl"
-              >
-                Taras Kolesnyk
-              </p>
-              <div class="flex justify-center pt-6">
-                <img
-                  width="200"
-                  src="./me/1.jpeg"
-                  alt="Statamic"
-                  class="rounded-full object-contain"
-                />
-              </div>
-              <p class="mt-6 text-lg/8 text-gray-300">
-                🚀 Current Frontend Developer (Angular, 10+ years) — turning
-                ideas into fast, scalable, and beautiful apps. Farm exp. at 2010
-                ... Now.
-              </p>
-              <div class="w-full text-center">
-                <a href="#about" class="font-semibold text-indigo-400"
-                  >Detail about</a
-                >
-              </div>
-            </div>
-          </div>
-          <img
-            width="2432"
-            height="1442"
-            src="work/work23.png"
-            alt="Product screenshot"
-            class="w-3xl max-w-none rounded-xl shadow-xl ring-1 ring-white/10 sm:w-228 md:-ml-4 lg:-ml-0"
-          />
-        </div>
-      </div>
-    </div>
-
     <!-- 2 -->
     <div class="bg-gray-900">
       <div class="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
@@ -455,25 +642,49 @@
             Education
           </h2>
 
-          <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-            <div
-              class="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10"
-            >
-              <div>
-                <a href="#">КТЕП (College)</a>
-                <span>2006-2010 Software developer (Tech education)</span>
-              </div>
-              <div>
-                <a href="#">МНТУ ISTU (University)</a>
-                <span> 2010-2014 Software developer (Magister) </span>
-              </div>
-            </div>
+          <div class="mt-10 max-w-xl text-sm text-gray-300 sm:text-base">
+            <ol class="relative border-l border-indigo-500/40 pl-5 space-y-8">
+              <li class="ml-1">
+                <div
+                  class="absolute -left-[9px] mt-1 size-4 rounded-full border-2 border-slate-900 bg-indigo-400 shadow-[0_0_0_4px_rgba(129,140,248,0.35)]"
+                ></div>
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.22em] text-indigo-300"
+                >
+                  2006 — 2010
+                </p>
+                <h3 class="mt-1 text-base font-semibold text-white">
+                  КТЕП (College) — Software Developer
+                </h3>
+                <p class="mt-1 text-sm text-gray-300">
+                  Technical college: core CS, algorithms, C/C++, and first real
+                  projects that shaped an engineering mindset.
+                </p>
+              </li>
+              <li class="ml-1">
+                <div
+                  class="absolute -left-[9px] mt-1 size-4 rounded-full border-2 border-slate-900 bg-indigo-300 shadow-[0_0_0_4px_rgba(129,140,248,0.25)]"
+                ></div>
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.22em] text-indigo-300"
+                >
+                  2010 — 2014
+                </p>
+                <h3 class="mt-1 text-base font-semibold text-white">
+                  МНТУ ISTU (University) — Software Developer, Magister
+                </h3>
+                <p class="mt-1 text-sm text-gray-300">
+                  University: deeper CS theory, databases and architecture —
+                  this is where full‑stack thinking and love for clean design
+                  systems started.
+                </p>
+              </li>
+            </ol>
           </div>
-          <br />
-          <br />
+
           <h2
             id="work"
-            class="text-5xl font-semibold tracking-tight text-white sm:text-7xl"
+            class="mt-16 text-5xl font-semibold tracking-tight text-white sm:text-7xl"
           >
             Work History
           </h2>
@@ -485,381 +696,725 @@
             fugiat.
           </p>
         </div>
-        <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
+        <div class="mx-auto mt-10 max-w-6xl">
           <div
-            class="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10"
+            class="mb-6 flex items-center justify-between text-xs text-gray-400"
           >
-            <div>
-              <a href="#">Global-IT</a>
-              <span
-                >2010 - 2014 Start dev carier, made simple websites, work with
-                legacy code</span
-              >
+            <span
+              class="font-semibold uppercase tracking-[0.22em] text-indigo-300"
+            >
+              experience map
+            </span>
+            <span>2010 — Now</span>
+          </div>
+
+          <div
+            class="grid gap-4 text-sm text-gray-300 lg:grid-cols-[minmax(0,1.1fr),minmax(0,1.1fr)]"
+          >
+            <div class="space-y-4">
+              <div class="glass-panel flex gap-3 px-4 py-3">
+                <div
+                  class="mt-1 text-xs font-semibold uppercase tracking-wide text-indigo-300"
+                >
+                  2010 — 2014
+                </div>
+                <div>
+                  <p
+                    class="text-xs font-semibold uppercase tracking-wide text-gray-400"
+                  >
+                    Global‑IT · First steps
+                  </p>
+                  <p class="text-sm font-semibold text-white">
+                    Start dev career — simple websites, legacy code, production
+                    fixes.
+                  </p>
+                </div>
+              </div>
+
+              <div class="glass-panel flex gap-3 px-4 py-3">
+                <div
+                  class="mt-1 text-xs font-semibold uppercase tracking-wide text-indigo-300"
+                >
+                  2014
+                </div>
+                <div>
+                  <p
+                    class="text-xs font-semibold uppercase tracking-wide text-gray-400"
+                  >
+                    Freelance · OpenCart
+                  </p>
+                  <p class="text-sm font-semibold text-white">
+                    Features and integrations for OpenCart CMS, hands‑on with
+                    PHP and custom themes.
+                  </p>
+                </div>
+              </div>
+
+              <div class="glass-panel flex gap-3 px-4 py-3">
+                <div
+                  class="mt-1 text-xs font-semibold uppercase tracking-wide text-indigo-300"
+                >
+                  2014 — 2015
+                </div>
+                <div>
+                  <p
+                    class="text-xs font-semibold uppercase tracking-wide text-gray-400"
+                  >
+                    GreenWeb · PHP dev
+                  </p>
+                  <p class="text-sm font-semibold text-white">
+                    PHP developer and part‑time team lead: e‑commerce, code
+                    review, mentoring, performance work.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div>
-              <a href="#">Freelance</a
-              ><span>2014 Make features for OpenCard CMS</span>
+
+            <div class="space-y-4">
+              <div class="glass-panel flex gap-3 px-4 py-3">
+                <div
+                  class="mt-1 text-xs font-semibold uppercase tracking-wide text-indigo-300"
+                >
+                  2015 — 2025
+                </div>
+                <div>
+                  <p
+                    class="text-xs font-semibold uppercase tracking-wide text-gray-400"
+                  >
+                    TenderSky / Leada · Fullstack
+                  </p>
+                  <p class="text-sm font-semibold text-white">
+                    Fullstack development for show business services and CRM:
+                    Angular, Laravel, MySQL, high‑load internal tools.
+                  </p>
+                </div>
+              </div>
+
+              <div class="glass-panel flex gap-3 px-4 py-3">
+                <div
+                  class="mt-1 text-xs font-semibold uppercase tracking-wide text-indigo-300"
+                >
+                  Now
+                </div>
+                <div>
+                  <p
+                    class="text-xs font-semibold uppercase tracking-wide text-gray-400"
+                  >
+                    Leada · Angular CRM
+                  </p>
+                  <p class="text-sm font-semibold text-white">
+                    Angular‑focused CRM work: scalable modules, design system
+                    work, and AI‑assisted development.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div>
-              <a href="#">GreenWeb</a
-              ><span>2014 - 2015 PHP developer, part role teamlead</span>
-            </div>
-            <div>
-              <a href="#">TenderSky</a
-              ><span
-                >2015 - 2025 Fullstack develop Service's of show business</span
-              >
-            </div>
-            <div><a href="#">Leada</a><span>CRM - Angular</span></div>
           </div>
           <br />
           <br />
           <div class="grid grid-cols-4 gap-6">
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work1.png"
+            >
               <img
                 src="./work/work1.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 1"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />
-            </div>
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work2.png"
+            >
               <img
                 src="./work/work2.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 2"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />
-            </div>
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work3.png"
+            >
               <img
                 src="./work/work3.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 3"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />
-            </div>
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work4.png"
+            >
               <img
                 src="./work/work4.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 4"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />
-            </div>
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work5.png"
+            >
               <img
                 src="./work/work5.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 5"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />
-            </div>
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work6.png"
+            >
               <img
                 src="./work/work6.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 6"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />
-            </div>
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work7.png"
+            >
               <img
                 src="./work/work7.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 7"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />
-            </div>
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work8.png"
+            >
               <img
                 src="./work/work8.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 8"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />
-            </div>
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work9.png"
+            >
               <img
                 src="./work/work9.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 9"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />
-            </div>
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work10.png"
+            >
               <img
                 src="./work/work10.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 10"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
               />
-            </div>
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work11.png"
+            >
               <img
                 src="./work/work11.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 11"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
               />
-            </div>
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work12.png"
+            >
               <img
                 src="./work/work12.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 12"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
               />
-            </div>
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work13.png"
+            >
               <img
                 src="./work/work13.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 13"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
               />
-            </div>
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work14.png"
+            >
               <img
                 src="./work/work14.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 14"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
               />
-            </div>
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work23.png"
+            >
+              <img
+                src="./work/work23.png"
+                alt="Product screenshot"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
+              />
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/trax_wtf_price.png"
+            >
+              <img
+                src="./work/trax_wtf_price.png"
+                alt="TRAX WTF Price"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
+              />
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work15.png"
+            >
               <img
                 src="./work/work15.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 15"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
               />
-            </div>
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work16.png"
+            >
               <img
                 src="./work/work16.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 16"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
               />
-            </div>
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work7.png"
+            >
               <img
                 src="./work/work7.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 17"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />
-            </div>
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work18.png"
+            >
               <img
                 src="./work/work18.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 18"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />
-            </div>
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work19.png"
+            >
               <img
                 src="./work/work19.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 19"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />
-            </div>
-            <div class="h-[200px] overflow-hidden rounded-[15px]">
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/work20.png"
+            >
               <img
                 src="./work/work20.png"
-                alt="Statamic"
-                class="object-cover"
+                alt="CRM / dashboard UI 20"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
               />
-            </div>
+            </button>
           </div>
         </div>
       </div>
     </div>
     <!-- 3 end -->
-    <!-- 4 start -->
-    <div
-      class="relative isolate overflow-hidden bg-gray-900 px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0"
-    >
-      <div class="absolute inset-0 -z-10 overflow-hidden">
-        <svg
-          aria-hidden="true"
-          class="absolute top-0 left-[max(50%,25rem)] h-256 w-512 -translate-x-1/2 mask-[radial-gradient(64rem_64rem_at_top,white,transparent)] stroke-gray-800"
-        >
-          <defs>
-            <pattern
-              id="e813992c-7d03-4cc4-a2bd-151760b470a0"
-              width="200"
-              height="200"
-              x="50%"
-              y="-1"
-              patternUnits="userSpaceOnUse"
-            >
-              <path d="M100 200V.5M.5 .5H200" fill="none" />
-            </pattern>
-          </defs>
-          <svg x="50%" y="-1" class="overflow-visible fill-gray-800/50">
-            <path
-              d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
-              stroke-width="0"
-            />
-          </svg>
-          <rect
-            width="100%"
-            height="100%"
-            fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)"
-            stroke-width="0"
-          />
-        </svg>
-      </div>
-      <div
-        class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10"
-        id="about"
-      >
-        <div
-          class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
-        >
-          <div class="lg:pr-4">
-            <div class="lg:max-w-lg">
-              <p class="text-base/7 font-semibold text-indigo-400">Detail</p>
-              <h2
-                class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl"
+    <!-- CV start -->
+    <div id="resume" class="bg-gray-900 py-24 sm:py-32 border-y border-white/5">
+      <div class="mx-auto max-w-5xl px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <p
+            class="text-sm font-semibold text-indigo-400 uppercase tracking-[0.2em]"
+          >
+            CV / Resume
+          </p>
+          <h2
+            class="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl"
+          >
+            Taras Kolesnyk — Software Developer
+          </h2>
+          <p class="mt-4 text-lg text-gray-300">
+            Frontend developer with 10+ years of experience in Angular,
+            TypeScript, and modern web stack. Strong full‑stack mindset with
+            Laravel, PHP, and SQL.
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-10 lg:grid-cols-[2fr,1.3fr] lg:gap-16">
+          <section aria-labelledby="cv-experience-title" class="space-y-8">
+            <div>
+              <h3
+                id="cv-experience-title"
+                class="text-sm font-semibold text-indigo-300 tracking-[0.2em] uppercase"
               >
-                About
-              </h2>
-              <p class="mt-6 text-xl/8 text-gray-300">
-                Frontend Developer with 10+ years of experience in Angular,
-                Material Design, Tailwind, and WebGL. Skilled in designing
-                complex interfaces and optimizing for performance. Strong
-                background in MySQL, SQLite, PHP, and Laravel, enabling
-                full-stack thinking from database to UI. I follow OOP, KISS, and
-                SOLID principles to write clean, maintainable code. Passionate
-                about building applications that solve real business problems
-                and deliver user value.
-              </p>
+                EXPERIENCE
+              </h3>
+              <div class="mt-4 space-y-6">
+                <article class="glass-panel p-5">
+                  <header
+                    class="flex flex-wrap items-baseline justify-between gap-2"
+                  >
+                    <div>
+                      <h4 class="text-base font-semibold text-white">
+                        Fullstack Developer — TenderSky / Leada
+                      </h4>
+                      <p class="text-sm text-gray-400">
+                        CRM and services for show business, high‑load internal
+                        products
+                      </p>
+                    </div>
+                    <p class="text-xs font-medium text-gray-400">
+                      2015 — 2025 · Ukraine / Remote
+                    </p>
+                  </header>
+                  <ul class="mt-3 space-y-1.5 text-sm text-gray-300">
+                    <li>
+                      — Angular + Material + Tailwind for large CRM interfaces.
+                    </li>
+                    <li>— Laravel/PHP + MySQL APIs, queues, reporting.</li>
+                    <li>
+                      — Designed UI components, modules, and scalable
+                      architecture.
+                    </li>
+                    <li>
+                      — Mentored teammates, introduced AI‑assisted workflows
+                      with LLMs.
+                    </li>
+                  </ul>
+                  <p class="mt-3 text-xs text-gray-400">
+                    Stack: Angular, TypeScript, RxJS, NgRx, Tailwind, Laravel,
+                    PHP, MySQL.
+                  </p>
+                </article>
+
+                <article class="glass-panel p-5">
+                  <header
+                    class="flex flex-wrap items-baseline justify-between gap-2"
+                  >
+                    <div>
+                      <h4 class="text-base font-semibold text-white">
+                        PHP Developer — GreenWeb
+                      </h4>
+                      <p class="text-sm text-gray-400">
+                        Web studio, e‑commerce and custom projects
+                      </p>
+                    </div>
+                    <p class="text-xs font-medium text-gray-400">
+                      2014 — 2015 · Ukraine
+                    </p>
+                  </header>
+                  <ul class="mt-3 space-y-1.5 text-sm text-gray-300">
+                    <li>— PHP development with legacy and modern codebases.</li>
+                    <li>
+                      — Part‑time team lead: estimates, code review, onboarding.
+                    </li>
+                    <li>
+                      — Performance and SEO improvements for production
+                      websites.
+                    </li>
+                  </ul>
+                </article>
+
+                <article class="glass-panel p-5">
+                  <header
+                    class="flex flex-wrap items-baseline justify-between gap-2"
+                  >
+                    <div>
+                      <h4 class="text-base font-semibold text-white">
+                        Freelance & Global‑IT
+                      </h4>
+                      <p class="text-sm text-gray-400">
+                        Start of career — websites, CMS, integrations
+                      </p>
+                    </div>
+                    <p class="text-xs font-medium text-gray-400">
+                      2010 — 2014 · Ukraine
+                    </p>
+                  </header>
+                  <ul class="mt-3 space-y-1.5 text-sm text-gray-300">
+                    <li>— Created and maintained small business websites.</li>
+                    <li>— Worked with OpenCart and other PHP‑based CMS.</li>
+                    <li>
+                      — Hands‑on experience with HTML, CSS, JS, and hosting.
+                    </li>
+                  </ul>
+                </article>
+              </div>
             </div>
-          </div>
-        </div>
-        <div
-          class="-mt-12 -ml-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden"
-        >
-          <img
-            src="./work/work16.png"
-            alt=""
-            class="w-3xl max-w-none rounded-xl bg-gray-800 shadow-xl ring-1 ring-white/10 sm:w-228"
-          />
-        </div>
-        <div
-          class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8"
-        >
-          <div class="lg:pr-4">
-            <div class="max-w-xl text-base/7 text-gray-400 lg:max-w-lg">
-              <p>
-                In addition to frontend expertise, I have strong backend
-                development skills. I know MySQL, SQLite, and PHP, and I have
-                actively used Laravel as a reliable framework for APIs and
-                business logic. This allows me to design applications
-                holistically — from the database to the final interface. I think
-                not only about the client side, but also about proper data
-                architecture. Such an approach makes my projects stable and easy
-                to maintain.
-              </p>
-              <ul role="list" class="mt-8 space-y-8 text-gray-400">
-                <li class="flex gap-x-3">
-                  🎺
-                  <span
-                    ><strong class="font-semibold text-white"
-                      >Cursor, LLMs</strong
-                    ><br />
-                    Claude, ChatGPT, Gemini: rules, context</span
+
+            <div>
+              <h3
+                class="text-sm font-semibold text-indigo-300 tracking-[0.2em] uppercase"
+              >
+                EDUCATION
+              </h3>
+              <div class="mt-4 space-y-3 text-sm text-gray-300">
+                <p>
+                  <span class="font-semibold text-white"
+                    >МНТУ ISTU (University)</span
+                  >
+                  — Software Developer (Magister), 2010–2014
+                </p>
+                <p>
+                  <span class="font-semibold text-white">КТЕП (College)</span>
+                  — Software Developer, 2006–2010
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <aside class="space-y-8">
+            <section aria-labelledby="cv-skills-title" class="glass-panel p-5">
+              <h3
+                id="cv-skills-title"
+                class="text-sm font-semibold text-indigo-300 tracking-[0.2em] uppercase"
+              >
+                CORE SKILLS
+              </h3>
+              <dl class="mt-4 space-y-3 text-sm text-gray-300">
+                <div>
+                  <dt class="font-semibold text-white">Frontend</dt>
+                  <dd>
+                    Angular, TypeScript, RxJS, NgRx, Signals, WebGL, HTML5,
+                    CSS3, Tailwind, Material Design.
+                  </dd>
+                </div>
+                <div>
+                  <dt class="font-semibold text-white">Backend</dt>
+                  <dd>
+                    PHP, Laravel, REST APIs, authentication, queues, cron jobs.
+                  </dd>
+                </div>
+                <div>
+                  <dt class="font-semibold text-white">Data</dt>
+                  <dd>MySQL, SQLite, query optimization, EER diagrams.</dd>
+                </div>
+                <div>
+                  <dt class="font-semibold text-white">Tools & AI</dt>
+                  <dd>
+                    Git, Docker (basic), Cursor IDE, ChatGPT, Claude, Gemini for
+                    coding productivity.
+                  </dd>
+                </div>
+                <div>
+                  <dt class="font-semibold text-white">Principles</dt>
+                  <dd>
+                    OOP, SOLID, KISS, clean architecture, code review,
+                    mentoring.
+                  </dd>
+                </div>
+              </dl>
+            </section>
+
+            <section class="glass-panel p-5">
+              <h3
+                class="text-sm font-semibold text-indigo-300 tracking-[0.2em] uppercase"
+              >
+                CONTACT
+              </h3>
+              <ul class="mt-4 space-y-2 text-sm text-gray-300">
+                <li>
+                  <span class="font-semibold text-white">Location:</span>
+                  <span class="ml-1">Ukraine · Remote‑friendly</span>
+                </li>
+                <li>
+                  <span class="font-semibold text-white">Email:</span>
+                  <a
+                    href="mailto:felloweskolts@gmail.com"
+                    class="ml-1 text-indigo-300 hover:text-indigo-200"
+                  >
+                    felloweskolts@gmail.com
+                  </a>
+                </li>
+                <li>
+                  <span class="font-semibold text-white">LinkedIn:</span>
+                  <a
+                    href="https://www.linkedin.com/in/taras-kolesnyk-v8/"
+                    target="_blank"
+                    class="ml-1 text-indigo-300 hover:text-indigo-200"
+                    >taras-kolesnyk-v8</a
                   >
                 </li>
-                <li class="flex gap-x-3">
-                  🌚
-                  <span
-                    ><strong class="font-semibold text-white"
-                      >JS / TS / Node</strong
-                    ><br />
-                    Angular: NgRx, Signals, WebGL</span
-                  >
-                </li>
-                <li class="flex gap-x-3">
-                  📌
-                  <span
-                    ><strong class="font-semibold text-white">PHP</strong><br />
-                    Native, Laravel</span
-                  >
-                </li>
-                <li class="flex gap-x-3">
-                  💡
-                  <span
-                    ><strong class="font-semibold text-white"
-                      >C / C# / C++</strong
-                    >
-                    <br />
-                    C - Arduino, C# - Unity, C++ - Unreal Engine</span
-                  >
-                </li>
-                <li class="flex gap-x-3">
-                  👨‍💻
-                  <span
-                    ><strong class="font-semibold text-white"
-                      >SQL, SQLite</strong
-                    >
-                    <br />
-                    EER Diagrams, SQL - web, SQLite - Unity
-                  </span>
-                </li>
-                <li class="flex gap-x-3">
-                  👨‍💻
-                  <span
-                    ><strong class="font-semibold text-white">Style</strong>
-                    <br />
-                    Material Design, Tailwind, Bootstrap, SCSS, Pallete
-                  </span>
-                </li>
-                <li class="flex gap-x-3">
-                  👨‍💻
-                  <span
-                    ><strong class="font-semibold text-white">Others</strong>
-                    <br />
-                    Material Design, Tailwind, Bootstrap</span
+                <li>
+                  <span class="font-semibold text-white">GitHub:</span>
+                  <a
+                    href="https://github.com/TarasKolesnik"
+                    target="_blank"
+                    class="ml-1 text-indigo-300 hover:text-indigo-200"
+                    >TarasKolesnik</a
                   >
                 </li>
               </ul>
-              <p class="mt-8">
-                For me, it’s not only about technologies but also about
-                methodologies. I follow OOP, KISS, and SOLID principles, which
-                help me write clean, understandable, and scalable code. When
-                working in teams, I practice code review and always strive to
-                share knowledge. I believe that proper architecture saves months
-                of development and simplifies future changes. This engineering
-                mindset benefits both the client and the entire team.
-              </p>
-              <h2 class="mt-16 text-2xl font-bold tracking-tight text-white">
-                Build something great
-              </h2>
-              <p class="mt-6">
-                I am open to new challenges and always strive to adopt emerging
-                technologies. WebGL and modern APIs allow me to push the
-                boundaries of frontend development and build unique interfaces.
-                In my projects, I pay close attention to details — from
-                performance to accessibility. For me, development is not just
-                about writing code, but about solving real problems for users
-                and businesses. If you need a reliable and experienced frontend
-                developer, I am the one who will see the project through to
-                success.
-              </p>
-            </div>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </div>
+    <!-- CV end -->
+    <!-- 4 start -->
+    <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 -z-10"
+      >
+        <div
+          class="absolute -top-40 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-indigo-500/25 blur-3xl"
+        ></div>
+        <div
+          class="absolute top-1/2 right-0 h-80 w-80 translate-x-1/3 -translate-y-1/2 rounded-full bg-fuchsia-500/20 blur-3xl"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 h-72 w-72 -translate-x-1/3 translate-y-1/3 rounded-full bg-sky-400/20 blur-3xl"
+        ></div>
+      </div>
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div
+          id="about"
+          class="mx-auto grid max-w-5xl gap-10 lg:grid-cols-[minmax(0,1.1fr),minmax(0,1.1fr)] lg:items-start"
+        >
+          <div class="order-2 space-y-6 lg:order-1">
+            <p
+              class="inline-flex items-center gap-2 rounded-full bg-indigo-500/15 px-3 py-1 text-xs font-medium uppercase tracking-[0.25em] text-indigo-200 ring-1 ring-indigo-400/40"
+            >
+              <span class="size-1.5 rounded-full bg-emerald-400"></span>
+              about
+            </p>
+            <h2
+              class="text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl"
+            >
+              Full‑stack mindset with a UI obsession.
+            </h2>
+            <p class="text-base text-gray-300 sm:text-lg/8">
+              I design and build product UIs that stay fast and clear even when
+              the business logic becomes complex: CRMs, internal dashboards,
+              admin panels. Angular + Tailwind + Material give me predictable
+              structure, while Laravel, PHP, and SQL let me think through data
+              flows end‑to‑end.
+            </p>
+            <p class="text-base text-gray-300 sm:text-lg/8">
+              I like when teammates can read the code without guessing: typed
+              APIs, explicit state, small reusable components, and design tokens
+              shared across the app. LLMs and Cursor help me keep this
+              consistency and move faster on refactors and routine work.
+            </p>
+
+            <dl class="mt-4 grid gap-4 text-sm text-gray-300 sm:grid-cols-2">
+              <div
+                class="rounded-xl bg-white/5 px-3.5 py-3 ring-1 ring-white/10"
+              >
+                <dt
+                  class="text-xs font-semibold uppercase tracking-wide text-indigo-300"
+                >
+                  Frontend
+                </dt>
+                <dd class="mt-1">
+                  Angular, TypeScript, RxJS, NgRx, Tailwind, Material, WebGL.
+                </dd>
+              </div>
+              <div
+                class="rounded-xl bg-white/5 px-3.5 py-3 ring-1 ring-white/10"
+              >
+                <dt
+                  class="text-xs font-semibold uppercase tracking-wide text-indigo-300"
+                >
+                  Backend & data
+                </dt>
+                <dd class="mt-1">
+                  Laravel, PHP, MySQL, SQLite, queues, reporting.
+                </dd>
+              </div>
+              <div
+                class="rounded-xl bg-white/5 px-3.5 py-3 ring-1 ring-white/10"
+              >
+                <dt
+                  class="text-xs font-semibold uppercase tracking-wide text-indigo-300"
+                >
+                  Principles
+                </dt>
+                <dd class="mt-1">
+                  OOP, SOLID, KISS, clean architecture, mentoring.
+                </dd>
+              </div>
+              <div
+                class="rounded-xl bg-white/5 px-3.5 py-3 ring-1 ring-white/10"
+              >
+                <dt
+                  class="text-xs font-semibold uppercase tracking-wide text-indigo-300"
+                >
+                  Tools & AI
+                </dt>
+                <dd class="mt-1">
+                  Cursor IDE, ChatGPT, Claude, Gemini for velocity.
+                </dd>
+              </div>
+            </dl>
           </div>
         </div>
       </div>
@@ -868,121 +1423,297 @@
     <!-- 4 end -->
 
     <!-- 5 start -->
-    <div class="bg-gray-900 py-24 sm:py-32" id="contacts">
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2
-          class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl"
-        >
-          Contacts
-        </h2>
-        <br />
-        <br />
-        <br />
+    <div
+      class="relative overflow-hidden bg-gray-900 py-24 sm:py-32"
+      id="contacts"
+    >
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 -z-10"
+      >
         <div
-          class="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5"
-        >
-          <a
-            href="https://www.instagram.com/taras.kolesnyk"
-            target="_blank"
-            aria-label="Instagram: Taras Kolesnyk"
+          class="absolute -top-32 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-indigo-500/25 blur-3xl"
+        ></div>
+        <div
+          class="absolute bottom-0 right-0 h-80 w-80 translate-x-1/3 translate-y-1/3 rounded-full bg-fuchsia-500/20 blur-3xl"
+        ></div>
+        <div
+          class="absolute -bottom-24 left-0 h-64 w-64 -translate-x-1/3 rounded-full bg-sky-400/20 blur-3xl"
+        ></div>
+      </div>
+
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <p
+            class="text-sm font-semibold tracking-[0.2em] text-indigo-400 uppercase"
           >
-            <img
-              width="158"
-              height="48"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/2048px-Instagram_logo_2022.svg.png"
-              alt="Transistor"
-              class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-            />
-            <span class="sr-only">Instagram</span>
-          </a>
-          <a
-            href="https://t.me/taras_kolesnyk_v8"
-            target="_blank"
-            aria-label="Telegram: Taras Kolesnyk"
+            stay in touch
+          </p>
+          <h2
+            class="mt-3 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl"
           >
-            <img
-              width="158"
-              height="48"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/1024px-Telegram_logo.svg.png"
-              alt="Reform"
-              class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-            />
-            <span class="sr-only">Telegram</span>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/taras-kolesnyk-v8/"
-            target="_blank"
-            aria-label="LinkedIn: Taras Kolesnyk"
-          >
-            <img
-              width="158"
-              height="48"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/500px-LinkedIn_logo_initials.png"
-              alt="Tuple"
-              class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-            />
-            <span class="sr-only">LinkedIn</span>
-          </a>
-          <a
-            href="mailto:felloweskolts@gmail.com"
-            target="_blank"
-            aria-label="Email: Taras Kolesnyk"
-          >
-            <img
-              width="158"
-              height="48"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png"
-              alt="SavvyCal"
-              class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
-            />
-            <span class="sr-only">Email</span>
-          </a>
-          <a
-            href="http://pinterest.com/felloweskolts"
-            target="_blank"
-            aria-label="Pinterest: Taras Kolesnyk"
-          >
-            <img
-              width="158"
-              height="48"
-              src="https://images.seeklogo.com/logo-png/27/2/pinterest-logo-png_seeklogo-273800.png"
-              alt="Statamic"
-              class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-            />
-            <span class="sr-only">Pinterest</span>
-          </a>
-          <a
-            href="https://www.youtube.com/@taraskolesnyk"
-            target="_blank"
-            aria-label="Youtube: Taras Kolesnyk"
-          >
-            <img
-              width="158"
-              height="48"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png"
-              alt="Statamic"
-              class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-            />
-            <span class="sr-only">Youtube</span>
-          </a>
-          <a
-            href="https://github.com/TarasKolesnik"
-            target="_blank"
-            aria-label="GitHub: Taras Kolesnyk"
-          >
-            <img
-              width="158"
-              height="48"
-              src="https://camo.githubusercontent.com/6153a62946d384c6740b3a95c243e192e3805f08205fa05717eaa8a53fad8c84/68747470733a2f2f7777772e636c6f7564666f756e6472792e6f72672f77702d636f6e74656e742f75706c6f6164732f6769746875622d6f75746c696e652d312e706e67"
-              alt="Statamic"
-              class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-            />
-            <span class="sr-only">GitHub</span>
-          </a>
+            Contacts
+          </h2>
+          <p class="mt-4 text-sm text-gray-300 sm:text-base">
+            Find me on social media or send an email — I’m open to frontend
+            roles, collaborations and interesting side projects.
+          </p>
         </div>
-        <div class="p-3 text-center text-gray-500">v0.0.2</div>
+
+        <div
+          class="mt-12 glass-panel mx-auto max-w-6xl border border-indigo-400/40 px-6 py-8 shadow-xl shadow-indigo-900/40 sm:px-10 sm:py-10"
+        >
+          <div
+            class="grid gap-10 lg:grid-cols-[1.5fr,minmax(0,1fr)] lg:items-start"
+          >
+            <div class="space-y-4 text-sm text-gray-200">
+              <p
+                class="inline-flex items-center gap-2 rounded-full bg-indigo-500/15 px-3 py-1 text-xs font-medium text-indigo-200 ring-1 ring-indigo-400/40"
+              >
+                <span class="size-1.5 rounded-full bg-emerald-400"></span>
+                Available for remote roles
+              </p>
+              <p>
+                <span class="font-semibold text-white">Location:</span>
+                <span class="ml-1">Ukraine · Remote‑friendly</span>
+              </p>
+              <p>
+                <span class="font-semibold text-white">Email:</span>
+                <a
+                  href="mailto:felloweskolts@gmail.com"
+                  class="ml-1 text-indigo-300 hover:text-indigo-200 underline-offset-2 hover:underline"
+                  >felloweskolts@gmail.com</a
+                >
+              </p>
+              <p>
+                <span class="font-semibold text-white">Preferred contact:</span>
+                <span class="ml-1">Telegram or LinkedIn for quick reply.</span>
+              </p>
+            </div>
+
+            <div class="space-y-4 text-sm text-gray-300">
+              <a
+                href="https://t.me/taras_kolesnyk_v8"
+                target="_blank"
+                class="flex items-center gap-4 rounded-xl bg-white/8 px-4 py-3.5 ring-1 ring-white/15 hover:bg-white/15 hover:ring-sky-400/70 transition"
+              >
+                <span
+                  class="inline-flex size-10 items-center justify-center rounded-full bg-sky-500/25 text-sky-300 shadow-inner shadow-sky-400/40"
+                >
+                  <!-- Telegram icon -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="size-4"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M9.086 13.596 8.84 17.1c.36 0 .516-.155.703-.34l1.687-1.629 3.5 2.566c.642.356 1.1.169 1.273-.593l2.309-10.852.001-.001c.204-.955-.345-1.328-.974-1.095L3.46 9.26c-.932.362-.918.884-.158 1.12l3.916 1.22 9.086-5.733c.428-.28.819-.125.498.155z"
+                    />
+                  </svg>
+                </span>
+                <span>
+                  <span
+                    class="block text-xs font-semibold uppercase tracking-wide text-gray-400"
+                    >Telegram</span
+                  >
+                  <span class="block text-sm text-white"
+                    >@taras_kolesnyk_v8</span
+                  >
+                </span>
+              </a>
+
+              <a
+                href="mailto:felloweskolts@gmail.com"
+                target="_blank"
+                class="flex items-center gap-4 rounded-xl bg-white/8 px-4 py-3.5 ring-1 ring-white/15 hover:bg-white/15 hover:ring-amber-300/70 transition"
+              >
+                <span
+                  class="inline-flex size-10 items-center justify-center rounded-full bg-amber-500/25 text-amber-200 shadow-inner shadow-amber-400/40"
+                >
+                  <!-- Mail icon -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                    class="size-4"
+                  >
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="m5 7 7 6 7-6" />
+                  </svg>
+                </span>
+                <span>
+                  <span
+                    class="block text-xs font-semibold uppercase tracking-wide text-gray-400"
+                    >Email</span
+                  >
+                  <span class="block text-sm text-white"
+                    >felloweskolts@gmail.com</span
+                  >
+                </span>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/taras-kolesnyk-v8/"
+                target="_blank"
+                class="flex items-center gap-4 rounded-xl bg-white/8 px-4 py-3.5 ring-1 ring-white/15 hover:bg-white/15 hover:ring-sky-400/80 transition"
+              >
+                <span
+                  class="inline-flex size-10 items-center justify-center rounded-full bg-sky-600/30 text-sky-200 shadow-inner shadow-sky-500/40"
+                >
+                  <!-- LinkedIn icon -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="size-4"
+                  >
+                    <path
+                      d="M4.98 3.5C4.98 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5s1.98.9 1.98 2zM1.25 8h3.5v14h-3.5zM8.5 8h3.36v1.71h.05c.47-.89 1.62-1.82 3.34-1.82 3.57 0 4.23 2.35 4.23 5.41V22h-3.5v-7.1c0-1.69-.03-3.87-2.36-3.87-2.36 0-2.72 1.84-2.72 3.74V22H8.5z"
+                    />
+                  </svg>
+                </span>
+                <span>
+                  <span
+                    class="block text-xs font-semibold uppercase tracking-wide text-gray-400"
+                    >LinkedIn</span
+                  >
+                  <span class="block text-sm text-white"
+                    >taras-kolesnyk-v8</span
+                  >
+                </span>
+              </a>
+
+              <a
+                href="https://github.com/TarasKolesnik"
+                target="_blank"
+                class="flex items-center gap-4 rounded-xl bg-white/8 px-4 py-3.5 ring-1 ring-white/15 hover:bg-white/15 hover:ring-indigo-400/80 transition"
+              >
+                <span
+                  class="inline-flex size-10 items-center justify-center rounded-full bg-gray-700/60 text-gray-100 shadow-inner shadow-black/40"
+                >
+                  <!-- GitHub icon -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="size-4"
+                  >
+                    <path
+                      d="M12 .5C5.648.5.5 5.648.5 12c0 5.086 3.292 9.387 7.865 10.91.575.106.785-.246.785-.553 0-.273-.01-1.18-.016-2.14-3.198.695-3.874-1.537-3.874-1.537-.523-1.33-1.28-1.685-1.28-1.685-1.046-.716.08-.701.08-.701 1.157.082 1.767 1.188 1.767 1.188 1.028 1.763 2.696 1.254 3.353.959.104-.745.402-1.255.73-1.543-2.553-.29-5.235-1.277-5.235-5.683 0-1.255.45-2.282 1.187-3.086-.12-.29-.516-1.457.112-3.038 0 0 .967-.31 3.17 1.18a10.95 10.95 0 0 1 2.886-.389c.978.005 1.964.133 2.886.389 2.2-1.49 3.166-1.18 3.166-1.18.63 1.581.234 2.748.115 3.038.74.804 1.185 1.831 1.185 3.086 0 4.418-2.688 5.389-5.25 5.673.414.355.78 1.053.78 2.123 0 1.534-.014 2.77-.014 3.146 0 .31.206.667.79.552C20.214 21.385 23.5 17.083 23.5 12c0-6.352-5.148-11.5-11.5-11.5Z"
+                    />
+                  </svg>
+                </span>
+                <span>
+                  <span
+                    class="block text-xs font-semibold uppercase tracking-wide text-gray-400"
+                    >GitHub</span
+                  >
+                  <span class="block text-sm text-white">TarasKolesnik</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 p-3 text-center text-xs text-gray-500">v0.0.3</div>
       </div>
     </div>
     <!-- 5 end -->
+
+    <!-- Work preview modal -->
+    <div
+      id="work-preview-backdrop"
+      class="fixed inset-0 z-[80] hidden items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+    >
+      <button
+        type="button"
+        id="work-preview-overlay"
+        class="absolute inset-0 h-full w-full cursor-zoom-out border-none bg-transparent p-0"
+        aria-label="Close work preview"
+      ></button>
+      <div
+        class="relative z-10 mx-auto flex max-h-[90vh] max-w-5xl flex-col rounded-2xl bg-slate-950/90 p-3 shadow-2xl ring-1 ring-white/15"
+      >
+        <button
+          type="button"
+          id="work-preview-close"
+          class="absolute right-3 top-3 inline-flex size-8 items-center justify-center rounded-full bg-black/40 text-gray-300 ring-1 ring-white/20 hover:bg-black/70 hover:text-white focus:outline-none"
+          aria-label="Close preview"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            class="size-4"
+          >
+            <path d="M6 6l12 12M6 18 18 6" stroke-linecap="round" />
+          </svg>
+        </button>
+        <img
+          id="work-preview-image"
+          src=""
+          alt="Work preview"
+          class="h-full max-h-[80vh] w-full rounded-xl object-contain"
+        />
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var modal = document.getElementById("work-preview-backdrop");
+        var modalImg = document.getElementById("work-preview-image");
+        var closeBtn = document.getElementById("work-preview-close");
+        var overlay = document.getElementById("work-preview-overlay");
+
+        if (!modal || !modalImg) return;
+
+        function openPreview(src) {
+          modalImg.src = src;
+          modal.classList.remove("hidden");
+          modal.classList.add("flex");
+          document.body.classList.add("overflow-hidden");
+        }
+
+        function closePreview() {
+          modal.classList.add("hidden");
+          modal.classList.remove("flex");
+          document.body.classList.remove("overflow-hidden");
+          modalImg.src = "";
+        }
+
+        document
+          .querySelectorAll("[data-work-preview]")
+          .forEach(function (btn) {
+            btn.addEventListener("click", function () {
+              var src = btn.getAttribute("data-work-preview");
+              if (src) {
+                openPreview(src);
+              }
+            });
+          });
+
+        [closeBtn, overlay].forEach(function (el) {
+          if (el) {
+            el.addEventListener("click", closePreview);
+          }
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (
+            event.key === "Escape" &&
+            modal &&
+            !modal.classList.contains("hidden")
+          ) {
+            closePreview();
+          }
+        });
+      });
+    </script>
   </body>
 </html>
