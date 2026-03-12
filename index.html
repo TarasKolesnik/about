@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="uk">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="./16.png" />
@@ -11,7 +11,7 @@
     </title>
     <meta
       name="description"
-      content="Portfolio of Taras Kolesnyk: Angular frontend, Material, Tailwind, WebGL. 10+ years building fast CRMs and high‑load web apps. Full‑stack mindset with Laravel & MySQL."
+      content="Portfolio of Taras Kolesnyk: Angular frontend, Material, Tailwind, WebGL. 15+ years building fast CRMs and high‑load web apps. Full‑stack mindset with Laravel & MySQL."
     />
     <link rel="canonical" href="https://taraskolesnik.github.io/about/" />
     <meta name="robots" content="index,follow" />
@@ -25,7 +25,7 @@
     />
     <meta
       property="og:description"
-      content="10+ years building fast CRMs & high‑load apps. Angular, Material, Tailwind, WebGL. Laravel/MySQL background."
+      content="15+ years building fast CRMs & high‑load apps. Angular, Material, Tailwind, WebGL. Laravel/MySQL background."
     />
     <meta property="og:url" content="https://taraskolesnik.github.io/about/" />
     <meta
@@ -55,7 +55,7 @@
         "@type": "Person",
         "name": "Taras Kolesnyk",
         "jobTitle": "Frontend Developer",
-        "description": "Angular, Material, Tailwind, WebGL. 10+ years. Full‑stack mindset with Laravel/MySQL.",
+        "description": "Angular, Material, Tailwind, WebGL. 15+ years. Full‑stack mindset with Laravel/MySQL.",
         "url": "https://taraskolesnik.github.io/about/",
         "image": "https://taraskolesnik.github.io/about/256.png",
         "sameAs": [
@@ -281,7 +281,7 @@
       <header class="absolute inset-x-0 top-0 z-50">
         <nav
           aria-label="Global"
-          class="flex items-center justify-between p-6 lg:px-8"
+          class="flex items-center justify-between gap-4 p-6 lg:px-8"
         >
           <div class="flex lg:flex-1">
             <a href="#" class="-m-1.5 p-1.5">
@@ -289,38 +289,78 @@
               <img src="./256.png" alt="" class="h-8 w-auto" />
             </a>
           </div>
-          <div class="flex lg:hidden">
-            <button
-              type="button"
-              command="show-modal"
-              commandfor="mobile-menu"
-              class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-200"
+          <div class="flex items-center gap-4">
+            <div
+              class="inline-flex items-center gap-1 rounded-full bg-white/5 px-1.5 py-0.5 text-xs font-semibold text-gray-300 ring-1 ring-white/15"
             >
-              <span class="sr-only">Open main menu</span>
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                data-slot="icon"
-                aria-hidden="true"
-                class="size-6"
+              <button
+                type="button"
+                data-lang-switch="en"
+                class="rounded-full px-2 py-0.5"
               >
-                <path
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
+                EN
+              </button>
+              <button
+                type="button"
+                data-lang-switch="uk"
+                class="rounded-full px-2 py-0.5"
+              >
+                УКР
+              </button>
+            </div>
+            <div class="flex lg:hidden">
+              <button
+                type="button"
+                command="show-modal"
+                commandfor="mobile-menu"
+                class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-200"
+              >
+                <span class="sr-only">Open main menu</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  data-slot="icon"
+                  aria-hidden="true"
+                  class="size-6"
+                >
+                  <path
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
           <div class="hidden lg:flex lg:gap-x-12">
-            <a href="#work" class="text-sm/6 font-semibold text-white">Work</a>
-            <a href="#resume" class="text-sm/6 font-semibold text-white">CV</a>
-            <a href="#about" class="text-sm/6 font-semibold text-white"
+            <a
+              href="#work"
+              class="text-sm/6 font-semibold text-white"
+              data-i18n-en="Work"
+              data-i18n-uk="Проєкти"
+              >Work</a
+            >
+            <a
+              href="#resume"
+              class="text-sm/6 font-semibold text-white"
+              data-i18n-en="CV"
+              data-i18n-uk="Резюме"
+              >CV</a
+            >
+            <a
+              href="#about"
+              class="text-sm/6 font-semibold text-white"
+              data-i18n-en="About"
+              data-i18n-uk="Про мене"
               >About</a
             >
-            <a href="#contacts" class="text-sm/6 font-semibold text-white"
+            <a
+              href="#contacts"
+              class="text-sm/6 font-semibold text-white"
+              data-i18n-en="Contacts"
+              data-i18n-uk="Контакти"
               >Contacts</a
             >
           </div>
@@ -371,21 +411,29 @@
                       <a
                         href="#work"
                         class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                        data-i18n-en="Work"
+                        data-i18n-uk="Проєкти"
                         >Work</a
                       >
                       <a
                         href="#resume"
                         class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                        data-i18n-en="CV"
+                        data-i18n-uk="Резюме"
                         >CV</a
                       >
                       <a
                         href="#about"
                         class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                        data-i18n-en="About"
+                        data-i18n-uk="Про мене"
                         >About</a
                       >
                       <a
                         href="#contacts"
                         class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                        data-i18n-en="Contacts"
+                        data-i18n-uk="Контакти"
                         >Contacts</a
                       >
                     </div>
@@ -434,6 +482,8 @@
               <div class="flex flex-col items-center text-center">
                 <h1
                   class="text-sm font-semibold tracking-[0.22em] text-indigo-300 uppercase"
+                  data-i18n-en="Software Developer"
+                  data-i18n-uk="Software Developer"
                 >
                   Software Developer
                 </h1>
@@ -456,35 +506,50 @@
                     </div>
                   </div>
                 </div>
-                <p class="mt-6 text-lg/8 text-gray-200">
-                  Frontend Developer (Angular, 10+ years) — turning ideas into
-                  fast, scalable, and clear interfaces for CRMs and internal
-                  tools.
+                <p
+                  class="mt-6 text-lg/8 text-gray-200"
+                  data-i18n-en="Software Developer from 2010 years - currently interested in 🪖 Miltech: Embedded / 3D development."
+                  data-i18n-uk="Розробник програмного забезпечення з 2010 року — цікавить 🪖 Miltech: Embedded / 3D розробка."
+                >
+                  🪖
                 </p>
                 <div
                   class="mt-4 flex flex-wrap items-center justify-center gap-4 text-sm text-gray-300"
                 >
                   <span class="inline-flex items-center gap-1">
                     <span class="size-1.5 rounded-full bg-emerald-400"></span>
-                    Open for remote roles
+                    <span
+                      data-i18n-en="Open for remote roles"
+                      data-i18n-uk="Відкритий до пропозицій"
+                      >Open for remote roles</span
+                    >
                   </span>
                   <a
                     href="#about"
                     class="font-semibold text-indigo-300 hover:text-indigo-200"
+                    data-i18n-en="About"
+                    data-i18n-uk="Про мене"
                     >About</a
                   >
                   <a
                     href="#work"
                     class="font-semibold text-gray-200 hover:text-white"
+                    data-i18n-en="Work"
+                    data-i18n-uk="Проєкти"
                   >
                     Work
                   </a>
                   <a
                     href="#resume"
                     class="inline-flex items-center rounded-full border border-indigo-400/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-200 hover:border-indigo-300 hover:text-indigo-100"
+                    data-i18n-en="View CV"
+                    data-i18n-uk="Переглянути резюме"
                   >
                     View CV
                   </a>
+                </div>
+                <div class="pt-3 text-slate-400 text-[12px]">
+                  Updated: 12.03.2026
                 </div>
               </div>
             </div>
@@ -520,57 +585,6 @@
         </div>
       </div>
     </div>
-    <!-- 2 -->
-    <div class="bg-gray-900">
-      <div class="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
-        <div
-          class="relative isolate overflow-hidden bg-gray-800 px-6 pt-16 after:pointer-events-none after:absolute after:inset-0 after:inset-ring after:inset-ring-white/10 sm:rounded-3xl sm:px-16 after:sm:rounded-3xl md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0"
-        >
-          <svg
-            viewBox="0 0 1024 1024"
-            aria-hidden="true"
-            class="absolute top-1/2 left-1/2 -z-10 size-256 -translate-y-1/2 mask-[radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"
-          >
-            <circle
-              r="512"
-              cx="512"
-              cy="512"
-              fill="url(#759c1415-0410-454c-8f7c-9a820de03641)"
-              fill-opacity="0.7"
-            />
-            <defs>
-              <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
-                <stop stop-color="#7775D6" />
-                <stop offset="1" stop-color="#E935C1" />
-              </radialGradient>
-            </defs>
-          </svg>
-          <div
-            class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left"
-          >
-            <h2
-              class="text-3xl font-semibold tracking-tight text-balance text-white sm:text-4xl"
-            >
-              Boost productivity by AI LLM models (ChatGPT, Claude, Gemini)
-            </h2>
-            <p class="mt-6 text-lg/8 text-pretty text-gray-300">
-              Using Cursor IDE, with LLMs and rules for faster development.
-            </p>
-          </div>
-          <div class="relative mt-16 h-80 lg:mt-8">
-            <img
-              width="1824"
-              height="1080"
-              src="work/work20.png"
-              alt="App screenshot"
-              class="absolute top-0 left-0 w-228 max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2 end -->
     <!-- 3 start -->
     <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
       <img
@@ -638,6 +652,8 @@
         <div class="mx-auto max-w-2xl lg:mx-0">
           <h2
             class="text-5xl font-semibold tracking-tight text-white sm:text-7xl"
+            data-i18n-en="Education"
+            data-i18n-uk="Освіта"
           >
             Education
           </h2>
@@ -656,7 +672,11 @@
                 <h3 class="mt-1 text-base font-semibold text-white">
                   КТЕП (College) — Software Developer
                 </h3>
-                <p class="mt-1 text-sm text-gray-300">
+                <p
+                  class="mt-1 text-sm text-gray-300"
+                  data-i18n-en="Technical college: core CS, algorithms, C/C++, and first real projects that shaped an engineering mindset."
+                  data-i18n-uk="Технічний коледж: базова інформатика, алгоритми, C/C++ та перші реальні проєкти, що сформували інженерне мислення."
+                >
                   Technical college: core CS, algorithms, C/C++, and first real
                   projects that shaped an engineering mindset.
                 </p>
@@ -673,10 +693,24 @@
                 <h3 class="mt-1 text-base font-semibold text-white">
                   МНТУ ISTU (University) — Software Developer, Magister
                 </h3>
-                <p class="mt-1 text-sm text-gray-300">
+                <p
+                  class="mt-1 text-sm text-gray-300"
+                  data-i18n-en="University: deeper CS theory, databases and architecture — this is where full‑stack thinking and love for clean design systems started."
+                  data-i18n-uk="Університет: глибша теорія CS, бази даних та архітектура — тут почалося full‑stack мислення та любов до чистих дизайн‑систем."
+                >
                   University: deeper CS theory, databases and architecture —
                   this is where full‑stack thinking and love for clean design
                   systems started.
+                </p>
+              </li>
+              <li class="ml-1">
+                <div
+                  class="absolute -left-[9px] mt-1 size-4 rounded-full border-2 border-slate-900 bg-indigo-300 shadow-[0_0_0_4px_rgba(129,140,248,0.25)]"
+                ></div>
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.22em] text-indigo-300"
+                >
+                  Пожиттєве навчання
                 </p>
               </li>
             </ol>
@@ -685,15 +719,18 @@
           <h2
             id="work"
             class="mt-16 text-5xl font-semibold tracking-tight text-white sm:text-7xl"
+            data-i18n-en="Work History"
+            data-i18n-uk="Досвід роботи"
           >
             Work History
           </h2>
           <p
             class="mt-8 text-lg font-medium text-pretty text-gray-300 sm:text-xl/8"
+            data-i18n-en="From 2010 years in web development — from small business sites and CMS to large high‑load CRMs and internal tools."
+            data-i18n-uk="З 2010 року у веб‑розробці — від невеликих сайтів і CMS до великих високонавантажених CRM та внутрішніх систем."
           >
-            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-            lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-            fugiat.
+            From 2010 years in web development — from small business sites and
+            CMS to large high‑load CRMs and internal tools.
           </p>
         </div>
         <div class="mx-auto mt-10 max-w-6xl">
@@ -702,10 +739,14 @@
           >
             <span
               class="font-semibold uppercase tracking-[0.22em] text-indigo-300"
+              data-i18n-en="experience map"
+              data-i18n-uk="мапа досвіду"
             >
               experience map
             </span>
-            <span>2010 — Now</span>
+            <span data-i18n-en="2010 — Now" data-i18n-uk="2010 — Зараз"
+              >2010 — Now</span
+            >
           </div>
 
           <div
@@ -721,10 +762,16 @@
                 <div>
                   <p
                     class="text-xs font-semibold uppercase tracking-wide text-gray-400"
+                    data-i18n-en="Global‑IT · First steps"
+                    data-i18n-uk="Global‑IT · Перші кроки"
                   >
                     Global‑IT · First steps
                   </p>
-                  <p class="text-sm font-semibold text-white">
+                  <p
+                    class="text-sm font-semibold text-white"
+                    data-i18n-en="Start dev career — simple websites, legacy code, production fixes."
+                    data-i18n-uk="Старт кар'єри — прості сайти, легасі‑код, виправлення у продакшені."
+                  >
                     Start dev career — simple websites, legacy code, production
                     fixes.
                   </p>
@@ -740,10 +787,16 @@
                 <div>
                   <p
                     class="text-xs font-semibold uppercase tracking-wide text-gray-400"
+                    data-i18n-en="Freelance · OpenCart"
+                    data-i18n-uk="Фриланс · OpenCart"
                   >
                     Freelance · OpenCart
                   </p>
-                  <p class="text-sm font-semibold text-white">
+                  <p
+                    class="text-sm font-semibold text-white"
+                    data-i18n-en="Features and integrations for OpenCart CMS, hands‑on with PHP and custom themes."
+                    data-i18n-uk="Фічі та інтеграції для OpenCart CMS, практичний досвід з PHP та кастомними темами."
+                  >
                     Features and integrations for OpenCart CMS, hands‑on with
                     PHP and custom themes.
                   </p>
@@ -759,10 +812,16 @@
                 <div>
                   <p
                     class="text-xs font-semibold uppercase tracking-wide text-gray-400"
+                    data-i18n-en="GreenWeb · PHP dev"
+                    data-i18n-uk="GreenWeb · PHP розробник"
                   >
                     GreenWeb · PHP dev
                   </p>
-                  <p class="text-sm font-semibold text-white">
+                  <p
+                    class="text-sm font-semibold text-white"
+                    data-i18n-en="PHP developer and part‑time team lead: e‑commerce, code review, mentoring, performance work."
+                    data-i18n-uk="PHP‑розробник і частково тимлід: e‑commerce, code review, менторинг, робота з продуктивністю."
+                  >
                     PHP developer and part‑time team lead: e‑commerce, code
                     review, mentoring, performance work.
                   </p>
@@ -780,10 +839,16 @@
                 <div>
                   <p
                     class="text-xs font-semibold uppercase tracking-wide text-gray-400"
+                    data-i18n-en="TenderSky / Leada · Fullstack"
+                    data-i18n-uk="TenderSky / Leada · Fullstack"
                   >
                     TenderSky / Leada · Fullstack
                   </p>
-                  <p class="text-sm font-semibold text-white">
+                  <p
+                    class="text-sm font-semibold text-white"
+                    data-i18n-en="Fullstack development for show business services and CRM: Angular, Laravel, MySQL, high‑load internal tools."
+                    data-i18n-uk="Fullstack‑розробка сервісів і CRM для шоу‑бізнесу: Angular, Laravel, MySQL, високонавантажені внутрішні інструменти."
+                  >
                     Fullstack development for show business services and CRM:
                     Angular, Laravel, MySQL, high‑load internal tools.
                   </p>
@@ -799,10 +864,16 @@
                 <div>
                   <p
                     class="text-xs font-semibold uppercase tracking-wide text-gray-400"
+                    data-i18n-en="Leada · Angular CRM"
+                    data-i18n-uk="Leada · Angular CRM"
                   >
                     Leada · Angular CRM
                   </p>
-                  <p class="text-sm font-semibold text-white">
+                  <p
+                    class="text-sm font-semibold text-white"
+                    data-i18n-en="Angular‑focused CRM work: scalable modules, design system work, and AI‑assisted development."
+                    data-i18n-uk="Робота над CRM на Angular: масштабовані модулі, дизайн‑система та розробка з підтримкою AI."
+                  >
                     Angular‑focused CRM work: scalable modules, design system
                     work, and AI‑assisted development.
                   </p>
@@ -1092,6 +1163,8 @@
         <div class="max-w-3xl">
           <p
             class="text-sm font-semibold text-indigo-400 uppercase tracking-[0.2em]"
+            data-i18n-en="CV / Resume"
+            data-i18n-uk="CV / Резюме"
           >
             CV / Resume
           </p>
@@ -1100,8 +1173,12 @@
           >
             Taras Kolesnyk — Software Developer
           </h2>
-          <p class="mt-4 text-lg text-gray-300">
-            Frontend developer with 10+ years of experience in Angular,
+          <p
+            class="mt-4 text-lg text-gray-300"
+            data-i18n-en="Software Developer with 15+ years of experience in Angular, TypeScript, and modern web stack. Strong full‑stack mindset with Laravel, PHP, and SQL."
+            data-i18n-uk="Software Developer з 2010 року досвіду в Angular, TypeScript та сучасному веб‑стеку. Міцне full‑stack мислення з Laravel, PHP та SQL."
+          >
+            Frontend developer with 15+ years of experience in Angular,
             TypeScript, and modern web stack. Strong full‑stack mindset with
             Laravel, PHP, and SQL.
           </p>
@@ -1113,6 +1190,8 @@
               <h3
                 id="cv-experience-title"
                 class="text-sm font-semibold text-indigo-300 tracking-[0.2em] uppercase"
+                data-i18n-en="EXPERIENCE"
+                data-i18n-uk="ДОСВІД"
               >
                 EXPERIENCE
               </h3>
@@ -1125,30 +1204,56 @@
                       <h4 class="text-base font-semibold text-white">
                         Fullstack Developer — TenderSky / Leada
                       </h4>
-                      <p class="text-sm text-gray-400">
+                      <p
+                        class="text-sm text-gray-400"
+                        data-i18n-en="CRM and services for show business, high‑load internal products"
+                        data-i18n-uk="CRM та сервіси для шоу‑бізнесу, високонавантажені внутрішні продукти"
+                      >
                         CRM and services for show business, high‑load internal
                         products
                       </p>
                     </div>
-                    <p class="text-xs font-medium text-gray-400">
+                    <p
+                      class="text-xs font-medium text-gray-400"
+                      data-i18n-en="2015 — 2025 · Ukraine / Remote"
+                      data-i18n-uk="2015 — 2025 · Україна / Віддалено"
+                    >
                       2015 — 2025 · Ukraine / Remote
                     </p>
                   </header>
                   <ul class="mt-3 space-y-1.5 text-sm text-gray-300">
-                    <li>
+                    <li
+                      data-i18n-en="— Angular + Material + Tailwind for large CRM interfaces."
+                      data-i18n-uk="— Angular + Material + Tailwind для великих CRM‑інтерфейсів."
+                    >
                       — Angular + Material + Tailwind for large CRM interfaces.
                     </li>
-                    <li>— Laravel/PHP + MySQL APIs, queues, reporting.</li>
-                    <li>
+                    <li
+                      data-i18n-en="— Laravel/PHP + MySQL APIs, queues, reporting."
+                      data-i18n-uk="— Laravel/PHP + MySQL: API, черги, звітність."
+                    >
+                      — Laravel/PHP + MySQL APIs, queues, reporting.
+                    </li>
+                    <li
+                      data-i18n-en="— Designed UI components, modules, and scalable architecture."
+                      data-i18n-uk="— Проєктував UI‑компоненти, модулі та масштабовану архітектуру."
+                    >
                       — Designed UI components, modules, and scalable
                       architecture.
                     </li>
-                    <li>
+                    <li
+                      data-i18n-en="— Mentored teammates, introduced AI‑assisted workflows with LLMs."
+                      data-i18n-uk="— Менторив команду, впроваджував процеси з підтримкою AI та LLM."
+                    >
                       — Mentored teammates, introduced AI‑assisted workflows
                       with LLMs.
                     </li>
                   </ul>
-                  <p class="mt-3 text-xs text-gray-400">
+                  <p
+                    class="mt-3 text-xs text-gray-400"
+                    data-i18n-en="Stack: Angular, TypeScript, RxJS, NgRx, Tailwind, Laravel, PHP, MySQL."
+                    data-i18n-uk="Стек: Angular, TypeScript, RxJS, NgRx, Tailwind, Laravel, PHP, MySQL."
+                  >
                     Stack: Angular, TypeScript, RxJS, NgRx, Tailwind, Laravel,
                     PHP, MySQL.
                   </p>
@@ -1162,20 +1267,39 @@
                       <h4 class="text-base font-semibold text-white">
                         PHP Developer — GreenWeb
                       </h4>
-                      <p class="text-sm text-gray-400">
+                      <p
+                        class="text-sm text-gray-400"
+                        data-i18n-en="Web studio, e‑commerce and custom projects"
+                        data-i18n-uk="Веб‑студія, e‑commerce та кастомні проєкти"
+                      >
                         Web studio, e‑commerce and custom projects
                       </p>
                     </div>
-                    <p class="text-xs font-medium text-gray-400">
+                    <p
+                      class="text-xs font-medium text-gray-400"
+                      data-i18n-en="2014 — 2015 · Ukraine"
+                      data-i18n-uk="2014 — 2015 · Україна"
+                    >
                       2014 — 2015 · Ukraine
                     </p>
                   </header>
                   <ul class="mt-3 space-y-1.5 text-sm text-gray-300">
-                    <li>— PHP development with legacy and modern codebases.</li>
-                    <li>
+                    <li
+                      data-i18n-en="— PHP development with legacy and modern codebases."
+                      data-i18n-uk="— PHP‑розробка з легасі та сучасними кодовими базами."
+                    >
+                      — PHP development with legacy and modern codebases.
+                    </li>
+                    <li
+                      data-i18n-en="— Part‑time team lead: estimates, code review, onboarding."
+                      data-i18n-uk="— Частковий тимлід: оцінки, code review, онбординг."
+                    >
                       — Part‑time team lead: estimates, code review, onboarding.
                     </li>
-                    <li>
+                    <li
+                      data-i18n-en="— Performance and SEO improvements for production websites."
+                      data-i18n-uk="— Оптимізація продуктивності та SEO для бойових сайтів."
+                    >
                       — Performance and SEO improvements for production
                       websites.
                     </li>
@@ -1190,18 +1314,39 @@
                       <h4 class="text-base font-semibold text-white">
                         Freelance & Global‑IT
                       </h4>
-                      <p class="text-sm text-gray-400">
+                      <p
+                        class="text-sm text-gray-400"
+                        data-i18n-en="Start of career — websites, CMS, integrations"
+                        data-i18n-uk="Початок карʼєри — сайти, CMS, інтеграції"
+                      >
                         Start of career — websites, CMS, integrations
                       </p>
                     </div>
-                    <p class="text-xs font-medium text-gray-400">
+                    <p
+                      class="text-xs font-medium text-gray-400"
+                      data-i18n-en="2010 — 2014 · Ukraine"
+                      data-i18n-uk="2010 — 2014 · Україна"
+                    >
                       2010 — 2014 · Ukraine
                     </p>
                   </header>
                   <ul class="mt-3 space-y-1.5 text-sm text-gray-300">
-                    <li>— Created and maintained small business websites.</li>
-                    <li>— Worked with OpenCart and other PHP‑based CMS.</li>
-                    <li>
+                    <li
+                      data-i18n-en="— Created and maintained small business websites."
+                      data-i18n-uk="— Створював і підтримував сайти малого бізнесу."
+                    >
+                      — Created and maintained small business websites.
+                    </li>
+                    <li
+                      data-i18n-en="— Worked with OpenCart and other PHP‑based CMS."
+                      data-i18n-uk="— Працював з OpenCart та іншими PHP‑CMS."
+                    >
+                      — Worked with OpenCart and other PHP‑based CMS.
+                    </li>
+                    <li
+                      data-i18n-en="— Hands‑on experience with HTML, CSS, JS, and hosting."
+                      data-i18n-uk="— Практичний досвід з HTML, CSS, JS та хостингом."
+                    >
                       — Hands‑on experience with HTML, CSS, JS, and hosting.
                     </li>
                   </ul>
@@ -1212,6 +1357,8 @@
             <div>
               <h3
                 class="text-sm font-semibold text-indigo-300 tracking-[0.2em] uppercase"
+                data-i18n-en="EDUCATION"
+                data-i18n-uk="ОСВІТА"
               >
                 EDUCATION
               </h3>
@@ -1235,6 +1382,8 @@
               <h3
                 id="cv-skills-title"
                 class="text-sm font-semibold text-indigo-300 tracking-[0.2em] uppercase"
+                data-i18n-en="CORE SKILLS"
+                data-i18n-uk="КЛЮЧОВІ НАВИЧКИ"
               >
                 CORE SKILLS
               </h3>
@@ -1266,7 +1415,7 @@
                 <div>
                   <dt class="font-semibold text-white">Principles</dt>
                   <dd>
-                    OOP, SOLID, KISS, clean architecture, code review,
+                    MIX: OOP, SOLID, KISS, clean architecture, code review,
                     mentoring.
                   </dd>
                 </div>
@@ -1276,6 +1425,8 @@
             <section class="glass-panel p-5">
               <h3
                 class="text-sm font-semibold text-indigo-300 tracking-[0.2em] uppercase"
+                data-i18n-en="CONTACT"
+                data-i18n-uk="КОНТАКТ"
               >
                 CONTACT
               </h3>
@@ -1344,26 +1495,27 @@
               class="inline-flex items-center gap-2 rounded-full bg-indigo-500/15 px-3 py-1 text-xs font-medium uppercase tracking-[0.25em] text-indigo-200 ring-1 ring-indigo-400/40"
             >
               <span class="size-1.5 rounded-full bg-emerald-400"></span>
-              about
+              <span data-i18n-en="about" data-i18n-uk="про мене">about</span>
             </p>
             <h2
               class="text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl"
+              data-i18n-en="2026"
+              data-i18n-uk="2026"
             >
-              Full‑stack mindset with a UI obsession.
+              2026
             </h2>
-            <p class="text-base text-gray-300 sm:text-lg/8">
-              I design and build product UIs that stay fast and clear even when
-              the business logic becomes complex: CRMs, internal dashboards,
-              admin panels. Angular + Tailwind + Material give me predictable
-              structure, while Laravel, PHP, and SQL let me think through data
-              flows end‑to‑end.
+            <p
+              class="text-base text-gray-300 sm:text-lg/8"
+              data-i18n-en="Hello, I'm a software developer. Currently looking for a job in the military (near-military) field, the goal is to be useful for the common goal and do the favorite work. During this time of developer career, a lot of code has been written, a lot of tasks have been done that brought and bring benefit, but there are several unfinished ideas that would like to close. Development for microcontrollers and game development, but the war has made its corrections, I wanted to try myself in the fields of Embedded / UE developers which are currently relevant on the market."
+              data-i18n-uk="Привіт, я розробник програмного забеспечення. Наразі шукаю роботу в військовій (біля-війсьвої) галузі, мета, бути корисним для спільної мети і робити улюблену роботу. За цесь час девелоперської кар'єри написано багаго коду, багато задач за плечами які приносили і приносять користь, але є декілька не закритих гештальтів які хотілось би закрити. Розробка під мікроконтролери та гейм-дев, але війна внесла свої корективи, хотілось себе спробувати в галузях Embedded / UE сверах які наразі є доречними на ринку."
+            >
+              0
             </p>
-            <p class="text-base text-gray-300 sm:text-lg/8">
-              I like when teammates can read the code without guessing: typed
-              APIs, explicit state, small reusable components, and design tokens
-              shared across the app. LLMs and Cursor help me keep this
-              consistency and move faster on refactors and routine work.
-            </p>
+            <p
+              class="text-base text-gray-300 sm:text-lg/8"
+              data-i18n-en="Also, interaction with AI tools. In any useful form."
+              data-i18n-uk="Також взамодія з AI інструментами. Влюбому корисному вигляді."
+            ></p>
 
             <dl class="mt-4 grid gap-4 text-sm text-gray-300 sm:grid-cols-2">
               <div
@@ -1371,10 +1523,16 @@
               >
                 <dt
                   class="text-xs font-semibold uppercase tracking-wide text-indigo-300"
+                  data-i18n-en="Frontend"
+                  data-i18n-uk="Frontend"
                 >
                   Frontend
                 </dt>
-                <dd class="mt-1">
+                <dd
+                  class="mt-1"
+                  data-i18n-en="Angular, TypeScript, RxJS, NgRx, Tailwind, Material, WebGL."
+                  data-i18n-uk="Angular, TypeScript, RxJS, NgRx, Tailwind, Material, WebGL."
+                >
                   Angular, TypeScript, RxJS, NgRx, Tailwind, Material, WebGL.
                 </dd>
               </div>
@@ -1383,11 +1541,17 @@
               >
                 <dt
                   class="text-xs font-semibold uppercase tracking-wide text-indigo-300"
+                  data-i18n-en="Backend & data"
+                  data-i18n-uk="Backend & data"
                 >
                   Backend & data
                 </dt>
-                <dd class="mt-1">
-                  Laravel, PHP, MySQL, SQLite, queues, reporting.
+                <dd
+                  class="mt-1"
+                  data-i18n-en="Laravel, PHP, Java/Kotlin, MySQL, SQLite."
+                  data-i18n-uk="Laravel, PHP, Java/Kotlin, MySQL, SQLite."
+                >
+                  Laravel, PHP, Java/Kotlin, MySQL, SQLite.
                 </dd>
               </div>
               <div
@@ -1395,11 +1559,17 @@
               >
                 <dt
                   class="text-xs font-semibold uppercase tracking-wide text-indigo-300"
+                  data-i18n-en="Principles"
+                  data-i18n-uk="Принципи"
                 >
                   Principles
                 </dt>
-                <dd class="mt-1">
-                  OOP, SOLID, KISS, clean architecture, mentoring.
+                <dd
+                  class="mt-1"
+                  data-i18n-en="MIX: OOP, SOLID, KISS, clean architecture."
+                  data-i18n-uk="MIX: OOP, SOLID, KISS, чиста архітектура."
+                >
+                  MIX: OOP, SOLID, KISS, clean architecture.
                 </dd>
               </div>
               <div
@@ -1407,11 +1577,36 @@
               >
                 <dt
                   class="text-xs font-semibold uppercase tracking-wide text-indigo-300"
+                  data-i18n-en="Tools & AI"
+                  data-i18n-uk="Інструменти та AI"
                 >
                   Tools & AI
                 </dt>
-                <dd class="mt-1">
-                  Cursor IDE, ChatGPT, Claude, Gemini for velocity.
+                <dd
+                  class="mt-1"
+                  data-i18n-en="Cursor/Antigravity IDE, Claude, Composer, Ollama, Gemini, Codex."
+                  data-i18n-uk="Cursor/Antigravity IDE, Claude, Composer, Ollama, Gemini, Codex."
+                >
+                  Cursor/Antigravity IDE, Claude, Composer, Ollama, Gemini,
+                  Codex.
+                </dd>
+              </div>
+              <div
+                class="rounded-xl bg-white/5 px-3.5 py-3 ring-1 ring-white/10"
+              >
+                <dt
+                  class="text-xs font-semibold uppercase tracking-wide text-indigo-300"
+                  data-i18n-en="Other"
+                  data-i18n-uk="Інше"
+                >
+                  Other
+                </dt>
+                <dd
+                  class="mt-1"
+                  data-i18n-en="WebGL: ThreeJS, UE4+, Unity App, Arduino C pet projects."
+                  data-i18n-uk="WebGL: ThreeJS, UE4+, Unity App, Arduino C pet‑проєкти."
+                >
+                  WebGL: ThreeJS, UE4+, Unity App, Arduino C pet projects.
                 </dd>
               </div>
             </dl>
@@ -1446,17 +1641,24 @@
         <div class="max-w-3xl">
           <p
             class="text-sm font-semibold tracking-[0.2em] text-indigo-400 uppercase"
+            data-i18n-en="stay in touch"
+            data-i18n-uk="залишаймося на звʼязку"
           >
             stay in touch
           </p>
           <h2
             class="mt-3 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl"
+            data-i18n-en="Contacts"
+            data-i18n-uk="Контакти"
           >
             Contacts
           </h2>
-          <p class="mt-4 text-sm text-gray-300 sm:text-base">
-            Find me on social media or send an email — I’m open to frontend
-            roles, collaborations and interesting side projects.
+          <p
+            class="mt-4 text-sm text-gray-300 sm:text-base"
+            data-i18n-en="👋👋👋"
+            data-i18n-uk="👋👋👋"
+          >
+            👋👋👋
           </p>
         </div>
 
@@ -1471,11 +1673,20 @@
                 class="inline-flex items-center gap-2 rounded-full bg-indigo-500/15 px-3 py-1 text-xs font-medium text-indigo-200 ring-1 ring-indigo-400/40"
               >
                 <span class="size-1.5 rounded-full bg-emerald-400"></span>
-                Available for remote roles
+                <span
+                  data-i18n-en="Available for offline/hybrid/remote roles"
+                  data-i18n-uk="Доступний для офф-лайн/гібридних/віддалених ролей"
+                  >Available for offline/hybrid/remote roles</span
+                >
               </p>
               <p>
                 <span class="font-semibold text-white">Location:</span>
-                <span class="ml-1">Ukraine · Remote‑friendly</span>
+                <span
+                  class="ml-1"
+                  data-i18n-en="Ukraine · Kyiv"
+                  data-i18n-uk="Україна · Київ"
+                  >Ukraine · Kyiv</span
+                >
               </p>
               <p>
                 <span class="font-semibold text-white">Email:</span>
@@ -1487,7 +1698,12 @@
               </p>
               <p>
                 <span class="font-semibold text-white">Preferred contact:</span>
-                <span class="ml-1">Telegram or LinkedIn for quick reply.</span>
+                <span
+                  class="ml-1"
+                  data-i18n-en="Telegram or LinkedIn for quick reply."
+                  data-i18n-uk="Найшвидше відповідаю в Telegram або LinkedIn."
+                  >Telegram or LinkedIn for quick reply.</span
+                >
               </p>
             </div>
 
@@ -1516,6 +1732,8 @@
                 <span>
                   <span
                     class="block text-xs font-semibold uppercase tracking-wide text-gray-400"
+                    data-i18n-en="Telegram"
+                    data-i18n-uk="Telegram"
                     >Telegram</span
                   >
                   <span class="block text-sm text-white"
@@ -1548,6 +1766,8 @@
                 <span>
                   <span
                     class="block text-xs font-semibold uppercase tracking-wide text-gray-400"
+                    data-i18n-en="Email"
+                    data-i18n-uk="Email"
                     >Email</span
                   >
                   <span class="block text-sm text-white"
@@ -1579,6 +1799,8 @@
                 <span>
                   <span
                     class="block text-xs font-semibold uppercase tracking-wide text-gray-400"
+                    data-i18n-en="LinkedIn"
+                    data-i18n-uk="LinkedIn"
                     >LinkedIn</span
                   >
                   <span class="block text-sm text-white"
@@ -1610,6 +1832,8 @@
                 <span>
                   <span
                     class="block text-xs font-semibold uppercase tracking-wide text-gray-400"
+                    data-i18n-en="GitHub"
+                    data-i18n-uk="GitHub"
                     >GitHub</span
                   >
                   <span class="block text-sm text-white">TarasKolesnik</span>
@@ -1619,7 +1843,7 @@
           </div>
         </div>
 
-        <div class="mt-6 p-3 text-center text-xs text-gray-500">v0.0.3</div>
+        <div class="mt-6 p-3 text-center text-xs text-gray-500">v0.0.4</div>
       </div>
     </div>
     <!-- 5 end -->
@@ -1671,47 +1895,93 @@
         var closeBtn = document.getElementById("work-preview-close");
         var overlay = document.getElementById("work-preview-overlay");
 
-        if (!modal || !modalImg) return;
+        if (modal && modalImg) {
+          function openPreview(src) {
+            modalImg.src = src;
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            document.body.classList.add("overflow-hidden");
+          }
 
-        function openPreview(src) {
-          modalImg.src = src;
-          modal.classList.remove("hidden");
-          modal.classList.add("flex");
-          document.body.classList.add("overflow-hidden");
-        }
+          function closePreview() {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+            document.body.classList.remove("overflow-hidden");
+            modalImg.src = "";
+          }
 
-        function closePreview() {
-          modal.classList.add("hidden");
-          modal.classList.remove("flex");
-          document.body.classList.remove("overflow-hidden");
-          modalImg.src = "";
-        }
-
-        document
-          .querySelectorAll("[data-work-preview]")
-          .forEach(function (btn) {
-            btn.addEventListener("click", function () {
-              var src = btn.getAttribute("data-work-preview");
-              if (src) {
-                openPreview(src);
-              }
+          document
+            .querySelectorAll("[data-work-preview]")
+            .forEach(function (btn) {
+              btn.addEventListener("click", function () {
+                var src = btn.getAttribute("data-work-preview");
+                if (src) {
+                  openPreview(src);
+                }
+              });
             });
+
+          [closeBtn, overlay].forEach(function (el) {
+            if (el) {
+              el.addEventListener("click", closePreview);
+            }
           });
 
-        [closeBtn, overlay].forEach(function (el) {
-          if (el) {
-            el.addEventListener("click", closePreview);
-          }
-        });
+          document.addEventListener("keydown", function (event) {
+            if (
+              event.key === "Escape" &&
+              modal &&
+              !modal.classList.contains("hidden")
+            ) {
+              closePreview();
+            }
+          });
+        }
 
-        document.addEventListener("keydown", function (event) {
-          if (
-            event.key === "Escape" &&
-            modal &&
-            !modal.classList.contains("hidden")
-          ) {
-            closePreview();
-          }
+        var LANG_KEY = "site-lang";
+        var root = document.documentElement;
+        var langButtons = document.querySelectorAll("[data-lang-switch]");
+
+        function applyLanguage(lang) {
+          var normalized = lang === "uk" ? "uk" : "en";
+          root.setAttribute("lang", normalized === "uk" ? "uk" : "en");
+          try {
+            localStorage.setItem(LANG_KEY, normalized);
+          } catch (e) {}
+
+          document
+            .querySelectorAll("[data-i18n-en][data-i18n-uk]")
+            .forEach(function (el) {
+              var text =
+                normalized === "uk" ? el.dataset.i18nUk : el.dataset.i18nEn;
+              if (text) {
+                el.textContent = text;
+              }
+            });
+
+          langButtons.forEach(function (btn) {
+            var btnLang = btn.getAttribute("data-lang-switch");
+            if (btnLang === normalized) {
+              btn.classList.add("bg-indigo-500", "text-white");
+              btn.classList.remove("text-gray-300");
+            } else {
+              btn.classList.remove("bg-indigo-500", "text-white");
+              btn.classList.add("text-gray-300");
+            }
+          });
+        }
+
+        var savedLang = "uk";
+        try {
+          savedLang = localStorage.getItem(LANG_KEY) || "uk";
+        } catch (e) {}
+        applyLanguage(savedLang);
+
+        langButtons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var lang = btn.getAttribute("data-lang-switch");
+            applyLanguage(lang);
+          });
         });
       });
     </script>
