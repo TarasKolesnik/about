@@ -120,6 +120,62 @@
         }
       }
 
+      @keyframes ps5WaveDrift {
+        0% {
+          transform: translate3d(-10%, 5%, 0) scale(1.05) skewX(-8deg);
+        }
+        50% {
+          transform: translate3d(8%, -4%, 0) scale(1.1) skewX(-4deg);
+        }
+        100% {
+          transform: translate3d(-10%, 5%, 0) scale(1.05) skewX(-8deg);
+        }
+      }
+
+      @keyframes ps5WaveDriftAlt {
+        0% {
+          transform: translate3d(6%, -6%, 0) scale(1.1) skewX(6deg);
+        }
+        50% {
+          transform: translate3d(-8%, 4%, 0) scale(1.04) skewX(2deg);
+        }
+        100% {
+          transform: translate3d(6%, -6%, 0) scale(1.1) skewX(6deg);
+        }
+      }
+
+      @keyframes ps5OrbDrift {
+        0% {
+          transform: translate3d(-6%, 4%, 0) scale(1);
+        }
+        50% {
+          transform: translate3d(4%, -2%, 0) scale(1.08);
+        }
+        100% {
+          transform: translate3d(-6%, 4%, 0) scale(1);
+        }
+      }
+
+      @keyframes decorBlobFloat {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.2;
+        }
+        33% {
+          transform: translate(6%, -8%) scale(1.12);
+          opacity: 0.35;
+        }
+        66% {
+          transform: translate(-5%, 4%) scale(1.06);
+          opacity: 0.28;
+        }
+      }
+
+      .decor-blob {
+        animation: decorBlobFloat 18s ease-in-out infinite;
+      }
+
       .aurora-bg {
         position: relative;
         overflow: hidden;
@@ -159,9 +215,120 @@
             transparent 55%
           );
         background-size: 220% 220%;
-        opacity: 0.6;
+        opacity: 0.9;
         mix-blend-mode: screen;
         animation: indigoAuroraShift 14s ease-in-out infinite;
+      }
+
+      .aurora-bg::after {
+        content: "";
+        position: absolute;
+        inset: -30%;
+        z-index: -2;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            circle at 20% 0%,
+            rgba(59, 130, 246, 0.6),
+            transparent 60%
+          ),
+          radial-gradient(
+            circle at 80% 100%,
+            rgba(236, 72, 153, 0.5),
+            transparent 60%
+          ),
+          radial-gradient(
+            circle at 50% 40%,
+            rgba(56, 189, 248, 0.55),
+            transparent 55%
+          );
+        filter: blur(20px);
+        opacity: 1;
+        mix-blend-mode: screen;
+        animation: indigoAuroraShift 26s ease-in-out infinite alternate;
+      }
+
+      .ps5-waves {
+        position: absolute;
+        inset: -20% -40%;
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0.95;
+        filter: blur(10px);
+      }
+
+      .ps5-wave {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 0% 40%,
+            rgba(129, 140, 248, 0.45),
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 60% 0%,
+            rgba(59, 130, 246, 0.6),
+            transparent 60%
+          ),
+          radial-gradient(
+            circle at 120% 60%,
+            rgba(15, 23, 42, 0.8),
+            transparent 60%
+          );
+        mix-blend-mode: screen;
+        transform-origin: 50% 50%;
+        animation: ps5WaveDrift 32s ease-in-out infinite;
+      }
+
+      .ps5-wave.ps5-wave--alt {
+        background:
+          radial-gradient(
+            circle at 0% 80%,
+            rgba(236, 72, 153, 0.38),
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 70% 10%,
+            rgba(14, 165, 233, 0.4),
+            transparent 60%
+          ),
+          radial-gradient(
+            circle at 120% 50%,
+            rgba(15, 23, 42, 0.9),
+            transparent 60%
+          );
+        animation: ps5WaveDriftAlt 38s ease-in-out infinite;
+        opacity: 0.9;
+      }
+
+      .ps5-orb {
+        position: absolute;
+        width: 380px;
+        height: 380px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 30% 20%,
+          rgba(191, 219, 254, 0.95),
+          rgba(129, 140, 248, 0.4),
+          transparent 70%
+        );
+        mix-blend-mode: screen;
+        opacity: 0.55;
+        filter: blur(4px);
+        animation: ps5OrbDrift 46s ease-in-out infinite alternate;
+      }
+
+      .ps5-orb.ps5-orb--right {
+        top: 10%;
+        right: -8%;
+      }
+
+      .ps5-orb.ps5-orb--left {
+        bottom: -8%;
+        left: -6%;
+        transform-origin: 40% 60%;
+        animation-duration: 52s;
       }
 
       .glass-panel {
@@ -278,6 +445,12 @@
   </head>
   <body>
     <div class="aurora-bg">
+      <!-- <div class="ps5-waves">
+        <div class="ps5-wave"></div>
+        <div class="ps5-wave ps5-wave--alt"></div>
+        <div class="ps5-orb ps5-orb--right"></div>
+        <div class="ps5-orb ps5-orb--left"></div>
+      </div> -->
       <header class="absolute inset-x-0 top-0 z-50">
         <nav
           aria-label="Global"
@@ -471,7 +644,7 @@
                 74.1% 44.1%
               );
             "
-            class="relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-288.75"
+            class="decor-blob relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#8b5cf6] to-[#a78bfa] opacity-30 sm:left-[calc(50%-30rem)] sm:w-288.75"
           ></div>
         </div>
         <div class="mx-auto max-w-2xl py-28 sm:py-40 lg:py-52">
@@ -499,7 +672,7 @@
                     <div class="rounded-full bg-slate-950/80 p-1">
                       <img
                         width="200"
-                        src="./me/1.jpeg"
+                        src="./me/2.jpg"
                         alt="Taras Kolesnyk portrait"
                         class="h-32 w-32 rounded-full object-cover sm:h-40 sm:w-40"
                       />
@@ -587,11 +760,6 @@
     </div>
     <!-- 3 start -->
     <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
-      <img
-        src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
-        alt=""
-        class="absolute inset-0 -z-10 size-full object-cover object-right md:object-center"
-      />
       <div
         aria-hidden="true"
         class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
@@ -617,7 +785,7 @@
               74.1% 44.1%
             );
           "
-          class="aspect-1097/845 w-274.25 bg-linear-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+          class="decor-blob aspect-1097/845 w-274.25 bg-linear-to-tr from-[#8b5cf6] to-[#2563eb] opacity-20"
         ></div>
       </div>
       <div
@@ -645,7 +813,7 @@
               74.1% 44.1%
             );
           "
-          class="aspect-1097/845 w-274.25 bg-linear-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+          class="decor-blob aspect-1097/845 w-274.25 bg-linear-to-tr from-[#8b5cf6] to-[#2563eb] opacity-20"
         ></div>
       </div>
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -675,7 +843,7 @@
                 <p
                   class="mt-1 text-sm text-gray-300"
                   data-i18n-en="Technical college: core CS, algorithms, C/C++, and first real projects that shaped an engineering mindset."
-                  data-i18n-uk="Технічний коледж: базова інформатика, алгоритми, C/C++ та перші реальні проєкти, що сформували інженерне мислення."
+                  data-i18n-uk="Технічний коледж: базова інформатика, алгоритми, C/C++, HTML, CSS, PHP."
                 >
                   Technical college: core CS, algorithms, C/C++, and first real
                   projects that shaped an engineering mindset.
@@ -695,12 +863,10 @@
                 </h3>
                 <p
                   class="mt-1 text-sm text-gray-300"
-                  data-i18n-en="University: deeper CS theory, databases and architecture — this is where full‑stack thinking and love for clean design systems started."
-                  data-i18n-uk="Університет: глибша теорія CS, бази даних та архітектура — тут почалося full‑stack мислення та любов до чистих дизайн‑систем."
+                  data-i18n-en="University: cryptography, encryption."
+                  data-i18n-uk="Університет: криптографія, шифрування."
                 >
-                  University: deeper CS theory, databases and architecture —
-                  this is where full‑stack thinking and love for clean design
-                  systems started.
+                  University: cryptography, encryption.
                 </p>
               </li>
               <li class="ml-1">
@@ -1152,6 +1318,58 @@
                 decoding="async"
               />
             </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/fin_total.gif"
+            >
+              <img
+                src="./work/fin_total.gif"
+                alt="CRM / Fin Total"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/incoming_filter_1.gif"
+            >
+              <img
+                src="./work/incoming_filter_1.gif"
+                alt="CRM / Incoming Filter 1"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/leads.gif"
+            >
+              <img
+                src="./work/leads.gif"
+                alt="CRM / Leads"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+            <button
+              type="button"
+              class="group h-[200px] overflow-hidden rounded-[15px] focus:outline-none"
+              data-work-preview="./work/telegram_alerts.gif"
+            >
+              <img
+                src="./work/telegram_alerts.gif"
+                alt="CRM / Telegram Alert"
+                class="size-full object-cover transition duration-200 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
           </div>
         </div>
       </div>
@@ -1175,12 +1393,11 @@
           </h2>
           <p
             class="mt-4 text-lg text-gray-300"
-            data-i18n-en="Software Developer with 15+ years of experience in Angular, TypeScript, and modern web stack. Strong full‑stack mindset with Laravel, PHP, and SQL."
-            data-i18n-uk="Software Developer з 2010 року досвіду в Angular, TypeScript та сучасному веб‑стеку. Міцне full‑stack мислення з Laravel, PHP та SQL."
+            data-i18n-en="Software Developer from 2010 years of experience, last 5 years in Angular, TypeScript, NodeJS, PHP, MySQL."
+            data-i18n-uk="Software Developer з 2010 року досвіду, останні 5 років в Angular, TypeScript, NodeJS, PHP, MySQL."
           >
-            Frontend developer with 15+ years of experience in Angular,
-            TypeScript, and modern web stack. Strong full‑stack mindset with
-            Laravel, PHP, and SQL.
+            Software Developer from 2010 years of experience, last 5 years in
+            Angular, TypeScript, NodeJS, PHP, MySQL.
           </p>
         </div>
 
@@ -1507,14 +1724,14 @@
             <p
               class="text-base text-gray-300 sm:text-lg/8"
               data-i18n-en="Hello, I'm a software developer. Currently looking for a job in the military (near-military) field, the goal is to be useful for the common goal and do the favorite work. During this time of developer career, a lot of code has been written, a lot of tasks have been done that brought and bring benefit, but there are several unfinished ideas that would like to close. Development for microcontrollers and game development, but the war has made its corrections, I wanted to try myself in the fields of Embedded / UE developers which are currently relevant on the market."
-              data-i18n-uk="Привіт, я розробник програмного забеспечення. Наразі шукаю роботу в військовій (біля-війсьвої) галузі, мета, бути корисним для спільної мети і робити улюблену роботу. За цесь час девелоперської кар'єри написано багаго коду, багато задач за плечами які приносили і приносять користь, але є декілька не закритих гештальтів які хотілось би закрити. Розробка під мікроконтролери та гейм-дев, але війна внесла свої корективи, хотілось себе спробувати в галузях Embedded / UE сверах які наразі є доречними на ринку."
+              data-i18n-uk="Привіт, я розробник програмного забеспечення. Наразі шукаю роботу в військовій (біля-війсьвої) галузі, мета, бути корисним для спільної мети і робити улюблену роботу. За цесь час девелоперської кар'єри написано багато коду, багато задач за плечами які приносили і приносять користь, але є декілька не закритих гештальтів які хотілось би закрити. Розробка під мікроконтролери та гейм-дев, але війна внесла свої корективи, хотілось себе спробувати в галузях Embedded / UE сверах які наразі є доречними на ринку."
             >
               0
             </p>
             <p
               class="text-base text-gray-300 sm:text-lg/8"
-              data-i18n-en="Also, interaction with AI tools. In any useful form."
-              data-i18n-uk="Також взамодія з AI інструментами. Влюбому корисному вигляді."
+              data-i18n-en="I'm currently finishing the development of a project (closing the last tasks) over which I worked for 4 years and moving to search for MilTechDev."
+              data-i18n-uk="На данний момент я закінчую розробку проекту (закриваю останні таски) над яким працював 4 роки і переходжу у пошук MilTechDev."
             ></p>
 
             <dl class="mt-4 grid gap-4 text-sm text-gray-300 sm:grid-cols-2">
@@ -1836,14 +2053,14 @@
                     data-i18n-uk="GitHub"
                     >GitHub</span
                   >
-                  <span class="block text-sm text-white">TarasKolesnik</span>
+                  <span class="block text-sm text-white">TarasKolesnyk</span>
                 </span>
               </a>
             </div>
           </div>
         </div>
 
-        <div class="mt-6 p-3 text-center text-xs text-gray-500">v0.0.4</div>
+        <div class="mt-6 p-3 text-center text-xs text-gray-500">v0.0.6</div>
       </div>
     </div>
     <!-- 5 end -->
