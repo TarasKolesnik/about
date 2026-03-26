@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taras Kolesnyk — CV / Резюме</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0f172a;
+      --ink-muted: #475569;
+      --ink-light: #64748b;
+      --accent: #4f46e5;
+      --accent-soft: #e0e7ff;
+      --paper: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .no-print { display: none !important; }
+    }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 11pt;
+      line-height: 1.5;
+      color: var(--ink);
+      background: var(--paper);
+      margin: 0;
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 12mm 14mm;
+    }
+    h1 { font-size: 1.75rem; font-weight: 600; margin: 0 0 0.25rem 0; color: var(--ink); }
+    .subtitle { font-size: 0.95rem; color: var(--ink-muted); font-weight: 500; margin-bottom: 1.25rem; }
+    .section-title {
+      font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em;
+      color: var(--accent); margin-bottom: 0.75rem; padding-bottom: 0.35rem;
+      border-bottom: 2px solid var(--accent-soft);
+    }
+    .contact-bar {
+      display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem;
+      font-size: 0.85rem; color: var(--ink-muted); margin-bottom: 1.5rem;
+    }
+    .contact-bar a { color: var(--accent); text-decoration: none; }
+    .contact-bar a:hover { text-decoration: underline; }
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 1.5rem 2rem;
+      align-items: start;
+    }
+    @media (max-width: 640px) { .two-cols { grid-template-columns: 1fr; } }
+    .job { margin-bottom: 1.25rem; }
+    .job:last-child { margin-bottom: 0; }
+    .job-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.5rem; margin-bottom: 0.35rem; }
+    .job-title { font-size: 1rem; font-weight: 600; color: var(--ink); }
+    .job-meta { font-size: 0.8rem; color: var(--ink-light); font-weight: 500; }
+    .job-company { font-size: 0.85rem; color: var(--ink-muted); margin-bottom: 0.4rem; }
+    .job ul { margin: 0; padding-left: 1.1rem; color: var(--ink-muted); font-size: 0.9rem; }
+    .job li { margin-bottom: 0.2rem; }
+    .job-stack { font-size: 0.8rem; color: var(--ink-light); margin-top: 0.4rem; font-family: 'JetBrains Mono', monospace; }
+    .edu-list { margin: 0; padding: 0; list-style: none; }
+    .edu-list li { margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--ink-muted); }
+    .edu-list .name { font-weight: 600; color: var(--ink); }
+    .skill-group { margin-bottom: 1rem; }
+    .skill-group:last-child { margin-bottom: 0; }
+    .skill-dt { font-size: 0.8rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; }
+    .skill-dd { margin: 0; font-size: 0.85rem; color: var(--ink-muted); line-height: 1.45; }
+    .print-btn {
+      position: fixed; top: 1rem; right: 1rem;
+      padding: 0.5rem 1rem; font-family: inherit; font-size: 0.85rem; font-weight: 600;
+      color: var(--paper); background: var(--accent); border: none; border-radius: 8px;
+      cursor: pointer; box-shadow: 0 2px 8px rgba(79, 70, 229, 0.35);
+    }
+    .print-btn:hover { background: #4338ca; }
+    @media print { .print-btn { display: none; } }
+  </style>
+</head>
+<body>
+  <button type="button" class="print-btn no-print" onclick="window.print()">Зберегти / друк PDF</button>
+
+  <header>
+    <h1>Taras Kolesnyk</h1>
+    <p class="subtitle">Розробник ПЗ з 15+ роками практики · Angular (TypeScript) · Laravel (PHP) · Defense Tech / MilTech focus</p>
+    <div class="contact-bar">
+      <span>Україна · Оффлайн (full-time) / гібрид</span>
+      <a href="mailto:felloweskolts@gmail.com">felloweskolts@gmail.com</a>
+      <a href="https://www.linkedin.com/in/taras-kolesnyk-v8/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/TarasKolesnik" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://taraskolesnik.github.io/about/" target="_blank" rel="noopener">CV page</a>
+    </div>
+  </header>
+
+  <div class="two-cols">
+    <div class="main-col">
+      <section>
+        <h2 class="section-title">Досвід</h2>
+
+        <article class="job">
+          <div class="job-header">
+            <span class="job-title">Software Developer — WEB / CRM / MilTech direction</span>
+            <span class="job-meta">2010 — дотепер · Україна</span>
+          </div>
+          <p class="job-company">Розробка складного WEB ПЗ та високонавантажених CRM із складною бізнес-логікою</p>
+          <ul>
+            <li>Останні 6 років: Angular (TypeScript) та Laravel (PHP) на професійному рівні.</li>
+            <li>Розробка та інтеграція емулятора GPS-потоку в ROS 2 (Python + rclpy).</li>
+            <li>Робота з емульованим UART, парсинг NMEA ($GPGGA).</li>
+            <li>3D-графіка та інтерактивні інтерфейси: Three.js, Unreal Engine 4/5, Unity.</li>
+          </ul>
+          <p class="job-stack">Стек: Angular, TypeScript, Laravel, PHP, ROS 2, Python (rclpy), Three.js, UE4/5, Unity.</p>
+        </article>
+
+        <article class="job">
+          <div class="job-header">
+            <span class="job-title">Embedded / Video stream (pet practice)</span>
+            <span class="job-meta">Практичний початковий рівень</span>
+          </div>
+          <p class="job-company">Практика в embedded та передачі відеопотоку</p>
+          <ul>
+            <li>ESP32, Arduino Nano, AC/DC інвертори, LED-дисплеї.</li>
+            <li>Відеопотік H.264 через GStreamer, RTP/UDP трансляція.</li>
+            <li>Досвід Android Apps (Kotlin).</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-header">
+            <span class="job-title">AI / LLM та pet projects</span>
+            <span class="job-meta">Поточний фокус</span>
+          </div>
+          <p class="job-company">Локальні AI-агенти та інженерні pet-проєкти</p>
+          <ul>
+            <li>Ollama, Qwen, локальні AI-агенти, RAG, memory systems.</li>
+            <li>Pet project #1: UART/PTY + GPGGA parser + RTP/H.264 + ROS 2 node.</li>
+            <li>Pet project #2: Drone Control (WEB UI → Python MAVLink → PX4 SITL).</li>
+          </ul>
+        </article>
+      </section>
+
+      <section style="margin-top: 1.5rem;">
+        <h2 class="section-title">Освіта</h2>
+        <ul class="edu-list">
+          <li><span class="name">МНТУ ISTU (University)</span> — Software Developer (Magister), 2010–2014</li>
+          <li><span class="name">КТЕП (College)</span> — Software Developer, 2006–2010</li>
+          <li><span class="name">Статус</span> — цивільно-військовий, 112 бригади ТРО</li>
+        </ul>
+      </section>
+    </div>
+
+    <aside class="aside-col">
+      <section>
+        <h2 class="section-title">Ключові навички</h2>
+        <dl class="skill-group">
+          <dt class="skill-dt">Web Frontend / Backend</dt>
+          <dd class="skill-dd">Професійний рівень: Angular (TypeScript), Laravel (PHP).</dd>
+        </dl>
+        <dl class="skill-group">
+          <dt class="skill-dt">Embedded / Microcontrollers</dt>
+          <dd class="skill-dd">Початковий рівень: ESP32, Arduino Nano, AC/DC інвертори, LED-дисплеї.</dd>
+        </dl>
+        <dl class="skill-group">
+          <dt class="skill-dt">AI / LLM</dt>
+          <dd class="skill-dd">Ollama, Qwen, локальні AI-агенти, RAG, memory systems.</dd>
+        </dl>
+        <dl class="skill-group">
+          <dt class="skill-dt">ROS 2</dt>
+          <dd class="skill-dd">Емуляція GPS-потоку (socat + PTY), парсинг NMEA ($GPGGA), ROS 2 нода на rclpy.</dd>
+        </dl>
+        <dl class="skill-group">
+          <dt class="skill-dt">3D / Graphics + Video</dt>
+          <dd class="skill-dd">Three.js (WebGL), Unreal Engine 4/5, Unity (mobile UI), H.264 via GStreamer, RTP/UDP.</dd>
+        </dl>
+      </section>
+    </aside>
+  </div>
+</body>
+</html>
